@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gas: 9.99
+  miles: 9.99
+  cost: 9.99
+  description: MyString
+
+two:
+  gas: 9.99
+  miles: 9.99
+  cost: 9.99
+  description: MyString

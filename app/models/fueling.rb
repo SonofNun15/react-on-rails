@@ -1,0 +1,2 @@
+class Fueling < ApplicationRecord
+end

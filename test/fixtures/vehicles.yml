@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  make: MyString
+  model: MyString
+  description: MyString
+  base_mileage: 1
+
+two:
+  make: MyString
+  model: MyString
+  description: MyString
+  base_mileage: 1

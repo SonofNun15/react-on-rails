@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-10-03
+  description: MyString
+  mechanic: MyString
+  cost: 9.99
+
+two:
+  date: 2016-10-03
+  description: MyString
+  mechanic: MyString
+  cost: 9.99
