@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004003751) do
+ActiveRecord::Schema.define(version: 20161004011403) do
 
   create_table "fuelings", force: :cascade do |t|
     t.decimal  "gas"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20161004003751) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "vehicle_id"
+    t.date     "date"
   end
 
   create_table "maintenance", force: :cascade do |t|
