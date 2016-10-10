@@ -1,0 +1,44 @@
+@import 'bootstrap';
+
+.vehicles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+a.vehicle {
+  //@extend .btn;
+  //@extend .btn-default;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-top: 10px;
+  margin-right: 10px;
+
+  padding: 15px 10px;
+
+  white-space: normal;
+  width: 150px;
+  height: 150px;
+
+  span {
+    display: block;
+  }
+
+  .make-model {
+    font-size: 1.1em;
+  }
+
+  .description {
+    font-size: 0.9em;
+    color: #888;
+  }
+
+  .fa-plus {
+    color: green
+  }
+}
+
