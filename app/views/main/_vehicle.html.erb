@@ -3,6 +3,6 @@
     <span class="make-model"><%= vehicle.make %> <%= vehicle.model %></span>
     <span class="description"><%= vehicle.description %></span>
   </p>
-  <span class="mileage"><%= vehicle.base_mileage %> miles</span>
+  <span class="mileage"><%= number_with_delimiter vehicle.base_mileage, delimiter: ',' %> miles</span>
 </a>
 

@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   get 'login' => 'session#new'
   post 'login' => 'session#create'
   post 'logout' => 'session#destroy'
+
+  get 'vehicle/new' => 'vehicle#new'
+  post 'vehicle' => 'vehicle#create'
 end

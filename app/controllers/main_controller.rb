@@ -1,7 +1,6 @@
 class MainController < ApplicationController
   before_action :fetch_vehicles, only: [:index]
   def index
-    binding.pry
     if view_context.logged_in?
       render 'index'
     else
