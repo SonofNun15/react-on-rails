@@ -5,7 +5,12 @@ class SessionController < ApplicationController
   def create
     parameters = login_params
     user = User.find_by email: parameters[:email]
-    return unless user.authenticate parameters[:password]
+
+    if user.blank? or !user.authenticate parameters[:password]
+      flash[:alert] = 'Login failed'
+      return redirect_to login_path
+    end
+
     session_manager = Session.new(session)
     session_manager.login user
     redirect_to root_path
