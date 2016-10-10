@@ -16,6 +16,6 @@ class VehicleController < AuthenticatedController
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:make, :model, :description, :base_mileage)
+    params.require(:vehicle).permit(:year, :make, :model, :description, :base_mileage)
   end
 end

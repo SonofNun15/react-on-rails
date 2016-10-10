@@ -1,6 +1,10 @@
 <div class="new vehicle form">
   <%= form_for @vehicle, url: vehicle_path do |f| %>
     <div class="form-group">
+      <%= f.label :year, class: 'control-label' %>:
+      <%= f.text_field :year, class: 'form-control' %>
+    </div>
+    <div class="form-group">
       <%= f.label :make, class: 'control-label' %>:
       <%= f.text_field :make, class: 'form-control' %>
     </div>

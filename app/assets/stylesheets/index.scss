@@ -7,9 +7,6 @@
 }
 
 a.vehicle {
-  //@extend .btn;
-  //@extend .btn-default;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -21,8 +18,8 @@ a.vehicle {
   padding: 15px 10px;
 
   white-space: normal;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 125px;
 
   span {
     display: block;

@@ -1,6 +1,10 @@
 <a href="#" class="vehicle btn btn-default" tabindex="0">
   <p>
-    <span class="make-model"><%= vehicle.make %> <%= vehicle.model %></span>
+    <span class="year-make-model">
+      <%= vehicle.year %>
+      <%= vehicle.make %>
+      <%= vehicle.model %>
+    </span>
     <span class="description"><%= vehicle.description %></span>
   </p>
   <span class="mileage"><%= number_with_delimiter vehicle.base_mileage, delimiter: ',' %> miles</span>
