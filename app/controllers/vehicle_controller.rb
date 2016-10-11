@@ -1,4 +1,6 @@
 class VehicleController < AuthenticatedController
+  before_action :authorize, except: [:new, :create]
+
   def new
     @vehicle = Vehicle.new
     @action_text = 'Create'
@@ -17,32 +19,32 @@ class VehicleController < AuthenticatedController
   end
 
   def show
-    @vehicle = Vehicle.find params[:id]
   end
 
   def edit
-    @vehicle = Vehicle.find params[:id]
     @action_text = 'Save'
     @action = update_vehicle_path
   end
 
   def update
-    id = params[:id]
-    vehicle = Vehicle.find id
-    vehicle.update vehicle_params
-
+    @vehicle.update vehicle_params
     flash[:notice] = 'Vehicle updated'
-    redirect_to show_vehicle_path(id)
+    redirect_to show_vehicle_path(params[:id])
   end
 
   def destroy
-    vehicle = Vehicle.find params[:id]
-    vehicle.destroy
-
+    @vehicle.destroy
+    flash[:notice] = 'Vehicle removed'
     redirect_to root_path
   end
 
   private
+
+  def authorize
+    @vehicle = Vehicle.find params[:id]
+    session_manager = Session.new(session)
+    redirect_to login_path unless session_manager.user_id == @vehicle.user.id
+  end
 
   def vehicle_params
     params.require(:vehicle).permit(:year, :make, :model, :color, :base_mileage)
