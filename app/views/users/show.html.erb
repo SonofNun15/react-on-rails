@@ -1,0 +1,16 @@
+<div class="profile form">
+  <%= form_for @user, url: profile_path do |f| %>
+    <div class="form-group">
+      <%= f.label :name, class: 'control-label' %>:
+      <%= f.text_field :name, value: @user.name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, class: 'control-label' %>:
+      <%= f.text_field :email, value: @user.email, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Save", class: "btn btn-success" %>
+      <a href="<%= password_path %>" class="btn btn-default">Change password</a>
+    </div>
+  <% end %>
+</div>
