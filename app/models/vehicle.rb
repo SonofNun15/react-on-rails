@@ -3,4 +3,8 @@ class Vehicle < ApplicationRecord
 
   has_many :fuelings
   has_many :maintenance
+
+  def needs_maintenance?
+    true
+  end
 end

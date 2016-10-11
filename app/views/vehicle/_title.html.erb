@@ -15,3 +15,9 @@
     <% end %>
   </div>
 </div>
+<% if vehicle.needs_maintenance? %>
+  <div class="important maintenance">
+    <i class="fa fa-exclamation-circle"></i>
+    Maintenance required!
+  </div>
+<% end %>
