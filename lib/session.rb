@@ -11,6 +11,10 @@ class Session
     User.find @session[:user_id]
   end
 
+  def user_id
+    @session[:user_id]
+  end
+
   def logged_in?
     @session.has_key? :user_id
   end
