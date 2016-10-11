@@ -1,3 +1,12 @@
 // Place all the styles related to the Vehicle controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.vehicle {
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

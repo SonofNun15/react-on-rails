@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post 'login' => 'session#create'
   post 'logout' => 'session#destroy'
 
-  get 'vehicle/new' => 'vehicle#new'
+  get 'vehicle/new' => 'vehicle#new', as: 'new_vehicle'
   post 'vehicle' => 'vehicle#create'
+
+  get 'vehicle/:id' => 'vehicle#show', as: 'show_vehicle'
 end

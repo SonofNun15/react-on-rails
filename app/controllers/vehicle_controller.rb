@@ -13,6 +13,10 @@ class VehicleController < AuthenticatedController
     redirect_to root_path
   end
 
+  def show
+    @vehicle = Vehicle.find params[:id]
+  end
+
   private
 
   def vehicle_params
