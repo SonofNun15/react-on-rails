@@ -1,6 +1,6 @@
 # README
 
-## react-on-rails-rails
+## react-on-rails
 A vanilla Ruby on Rails application for tracking vehicle mileage
 
 This README would normally document whatever steps are necessary to get the
