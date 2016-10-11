@@ -5,11 +5,13 @@
     <span><%= vehicle.model %></span>
   </h2>
   <div class="buttons">
-    <button class="btn btn-default">
+    <a href="<%= edit_vehicle_path %>" class="btn btn-default">
       <i class="fa fa-edit"></i>
-    </button>
-    <button class="btn btn-danger">
-      <i class="fa fa-times"></i>
-    </button>
+    </a>
+    <%= form_tag destroy_vehicle_path, method: 'DELETE', class: 'button_form' do %>
+      <button type="submit" class="btn btn-danger">
+        <i class="fa fa-times"></i>
+      </button>
+    <% end %>
   </div>
 </div>

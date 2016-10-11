@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   post 'vehicle' => 'vehicle#create'
 
   get 'vehicle/:id' => 'vehicle#show', as: 'show_vehicle'
+  get 'vehicle/:id/edit' => 'vehicle#edit', as: 'edit_vehicle'
+  patch 'vehicle/:id' => 'vehicle#update', as: 'update_vehicle'
+  delete 'vehicle/:id' => 'vehicle#destroy', as: 'destroy_vehicle'
 end
