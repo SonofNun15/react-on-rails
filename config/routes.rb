@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   get 'register' => 'users#new'
   post 'register' => 'users#create'
-  get 'profile' => 'users#show'
-  patch 'profile' => 'users#edit'
-  get 'password' => 'users#show_password'
-  post 'password' => 'users#edit_password'
+  get 'profile' => 'users#edit'
+  patch 'profile' => 'users#update'
+  get 'password' => 'users#edit_password'
+  post 'password' => 'users#update_password'
 
   get 'login' => 'session#new'
   post 'login' => 'session#create'

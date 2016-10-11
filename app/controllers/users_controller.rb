@@ -17,21 +17,21 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def show
+  def edit
     session_manager = Session.new(session)
     return redirect_to login_path if !session_manager.logged_in?
     @user = User.find session_manager.user_id
   end
 
-  def edit
+  def update
     update_user profile_params
     flash[:notice] = 'Profile updated'
   end
 
-  def show_password
+  def edit_password
   end
 
-  def edit_password
+  def update_password
     update_user password_params
     flash[:notice] = 'Password updated'
   end
