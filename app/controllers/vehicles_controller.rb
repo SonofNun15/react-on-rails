@@ -1,10 +1,10 @@
-class VehicleController < AuthenticatedController
+class VehiclesController < AuthenticatedController
   before_action :authorize, except: [:new, :create]
 
   def new
     @vehicle = Vehicle.new
     @action_text = 'Create'
-    @action = vehicle_path
+    @action = vehicles_path
     render 'edit'
   end
 
@@ -23,13 +23,13 @@ class VehicleController < AuthenticatedController
 
   def edit
     @action_text = 'Save'
-    @action = update_vehicle_path
+    @action = vehicle_path params[:id]
   end
 
   def update
     @vehicle.update vehicle_params
     flash[:notice] = 'Vehicle updated'
-    redirect_to show_vehicle_path(params[:id])
+    redirect_to vehicle_path(params[:id])
   end
 
   def destroy

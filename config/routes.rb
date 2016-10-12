@@ -13,11 +13,5 @@ Rails.application.routes.draw do
   post 'login' => 'session#create'
   post 'logout' => 'session#destroy'
 
-  get 'vehicle/new' => 'vehicle#new', as: 'new_vehicle'
-  post 'vehicle' => 'vehicle#create'
-
-  get 'vehicle/:id' => 'vehicle#show', as: 'show_vehicle'
-  get 'vehicle/:id/edit' => 'vehicle#edit', as: 'edit_vehicle'
-  patch 'vehicle/:id' => 'vehicle#update', as: 'update_vehicle'
-  delete 'vehicle/:id' => 'vehicle#destroy', as: 'destroy_vehicle'
+  resources :vehicles
 end

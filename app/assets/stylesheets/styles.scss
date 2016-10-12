@@ -3,6 +3,11 @@ body h2 {
   font-size: 1.8em;
 }
 
+h3 {
+  font-size: 1.3em !important;
+  font-weight: normal !important;
+}
+
 // Bad, bad, bad
 // !important is required because currently bootstrap styles are included
 //   before these styles. these can't be more specific, so must have
