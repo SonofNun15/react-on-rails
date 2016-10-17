@@ -3,11 +3,11 @@
   <div class="entries row">
     <span class="lifetime col-xs-6">
       <span class="entry-label">Lifetime:</span>
-      <span class="value">value</span>
+      <span class="value"><%= number_with_delimiter vehicle.lifetime_mpg, delimiter: ',' %> MPG</span>
     </span>
     <span class="6mo col-xs-6">
       <span class="entry-label">6 months:</span>
-      <span class="value">value</span>
+      <span class="value"><%= number_with_delimiter vehicle.recent_mpg(6.months), delimiter: ',' %> MPG</span>
     </span>
   </div>
 </div>
