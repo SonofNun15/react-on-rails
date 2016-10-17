@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   post 'login' => 'session#create'
   post 'logout' => 'session#destroy'
 
-  resources :vehicles
+  resources :vehicles do
+    resources :fuelings
+    resources :maintenance
+  end
 end
