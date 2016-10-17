@@ -5,7 +5,6 @@ class FuelingsController < AuthenticatedController
   end
 
   def create
-    binding.pry
     Fueling.create fueling_params.merge(vehicle_id: params[:vehicle_id])
 
     flash[:notice] = 'Added fueling'

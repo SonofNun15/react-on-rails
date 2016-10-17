@@ -1,26 +1,22 @@
-<div class="fueling form">
+<div class="maintenance form">
   <h3>
-    <i class="fa fa-tachometer"></i> New fueling
+    <i class="fa fa-wrench"></i> New maintenance
   </h3>
-  <%= form_for @fueling, url: vehicle_fuelings_path do |f| %>
+  <%= form_for @maintenance, url: vehicle_maintenance_index_path do |f| %>
     <div class="form-group">
       <%= f.label :date, class: 'control-label' %>:
       <%= f.text_field :date, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :gas, 'Gallons of gas: ', class: 'control-label' %>
-      <%= f.text_field :gas, class: 'form-control' %>
+      <%= f.label :mechanic, class: 'control-label' %>:
+      <%= f.text_field :mechanic, class: 'form-control' %>
     </div>
     <div class="form-group">
       <%= f.label :cost, class: 'control-label' %>:
       <%= f.text_field :cost, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :miles, class: 'control-label' %>:
-      <%= f.text_field :miles, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :description, class: 'control-label' %>:
+      <%= f.label :description, class: 'control-label' %>
       <%= f.text_field :description, class: 'form-control' %>
     </div>
     <div class="form-group">
