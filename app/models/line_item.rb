@@ -19,8 +19,8 @@ class LineItem
 
   def self.from_fueling(fueling)
     new change: fueling_change(fueling),
-        title: "#{fueling.mpg} MPG",
-        description: "#{fueling.miles} miles",
+        title: "#{NumberFormatter.pretty_number fueling.mpg} MPG",
+        description: "#{NumberFormatter.pretty_number fueling.miles} miles",
         date: fueling.date,
         type: :fueling
   end

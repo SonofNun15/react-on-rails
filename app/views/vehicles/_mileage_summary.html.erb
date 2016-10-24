@@ -3,14 +3,24 @@
   <div class="entries row">
     <span class="lifetime col-xs-6">
       <span class="entry-label">Lifetime:</span>
-      <span class="value"><%= number_with_delimiter vehicle.lifetime_mileage, delimiter: ',' %> miles</span>
+      <span class="value">
+        <%= pretty_number vehicle.lifetime_mileage %>
+        miles
+      </span>
     </span>
     <span class="6mo col-xs-6">
       <span class="entry-label">6 months:</span>
-      <span class="value"><%= number_with_delimiter vehicle.recent_mileage(6.months), delimiter: ',' %> miles</span>
+      <span class="value">
+        <%= pretty_number vehicle.recent_mileage(6.months) %>
+        miles
+      </span>
     </span>
     <span class="maintenance col-xs-12">
       <span class="entry-label">Since maintenance:</span>
-      <span class="value"><%= number_with_delimiter vehicle.miles_since_maintenance, delimiter: ',' %> miles</span>
+      <span class="value">
+        <%= pretty_number vehicle.miles_since_maintenance %>
+        miles
+      </span>
+    </span>
   </div>
 </div>
