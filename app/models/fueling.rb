@@ -4,14 +4,14 @@ class Fueling < ApplicationRecord
   validates :date, presence: true
 
   def mpg
-    0
+    miles / gas
   end
 
   def above_average_mpg?
-    false
+    mpg > vehicle.lifetime_mpg
   end
 
   def below_average_mpg?
-    true
+    mpg < vehicle.lifetime_mpg
   end
 end
