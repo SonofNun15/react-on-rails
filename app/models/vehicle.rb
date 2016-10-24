@@ -1,3 +1,5 @@
+require 'enumerable'
+
 class Vehicle < ApplicationRecord
   belongs_to :user
 
