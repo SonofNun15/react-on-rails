@@ -34,7 +34,7 @@ class Vehicle < ApplicationRecord
   end
 
   def last_maintenance
-    maintenance.last
+    maintenance.order(date: :desc).first
   end
 
   def line_items
