@@ -24,11 +24,13 @@
     <span><%= line_item.date %></span>
   </div>
   <div class="action col-sm-2">
-    <a href="<%= line_item.edit_action %>" class="btn btn-link">
+    <a href="<%= line_item_edit_path line_item %>" class="btn btn-link">
       <i class="fa fa-pencil"></i>
     </a>
-    <a href="<%= line_item.delete_action %>" class="btn btn-link">
-      <i class="fa fa-times"></i>
-    </a>
+    <%= form_tag line_item_delete_path(line_item), method: 'DELETE', class: 'button_form' do %>
+      <button type="submit" class="btn btn-link">
+        <i class="fa fa-times"></i>
+      </button>
+    <% end %>
   </div>
 </div>

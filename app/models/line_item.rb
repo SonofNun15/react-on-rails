@@ -1,15 +1,15 @@
 class LineItem
-  attr_reader :change, :title, :description, :date,
-              :type, :edit_action, :delete_action
+  attr_reader :id, :vehicle, :change, :title,
+              :description, :date, :type
 
   def initialize(**properties)
+    @id = properties[:id]
+    @vehicle = properties[:vehicle]
     @change = properties[:change]
     @title = properties[:title]
     @description = properties[:description]
     @date = properties[:date]
     @type = properties[:type]
-    @edit_action = properties[:edit_action]
-    @delete_action = properties[:delete_action]
     @attention = properties[:attention]
   end
 
@@ -18,7 +18,9 @@ class LineItem
   end
 
   def self.from_fueling(fueling)
-    new change: fueling_change(fueling),
+    new id: fueling.id,
+        vehicle: fueling.vehicle,
+        change: fueling_change(fueling),
         title: "#{NumberFormatter.pretty_number fueling.mpg} MPG",
         description: "#{NumberFormatter.pretty_number fueling.miles} miles",
         date: fueling.date,
@@ -26,7 +28,9 @@ class LineItem
   end
 
   def self.from_maintenance(maintenance)
-    new title: maintenance.mechanic,
+    new id: maintenance.id,
+        vehicle: maintenance.vehicle,
+        title: maintenance.mechanic,
         description: maintenance.description,
         date: maintenance.date,
         type: :maintenance,
