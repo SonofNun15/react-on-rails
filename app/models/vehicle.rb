@@ -43,9 +43,7 @@ class Vehicle < ApplicationRecord
   end
 
   def line_items
-    fueling_line_items = fuelings.map { |f| LineItem.from_fueling f }
-    maintenance_line_items = maintenance.map { |m| LineItem.from_maintenance m }
-    all_items = (fueling_line_items + maintenance_line_items)
+    all_items = fuelings + maintenance
     all_items.sort do |first, second|
       second.date <=> first.date
     end

@@ -1,0 +1,27 @@
+<div class="entry row">
+  <div class="title col-sm-3">
+    <% if maintenance.needs_attention? %>
+      <i class="fa fa-exclamation-circle important"></i>
+    <% end %>
+
+    <i class="fa fa-wrench"></i>
+    <span><%= maintenance.mechanic %></span>
+  </div>
+  <div class="detail col-sm-4">
+    <span><%= maintenance.description %></span>
+  </div>
+  <div class="date col-sm-3">
+    <span><%= maintenance.date %></span>
+  </div>
+  <div class="action col-sm-2">
+    <a href="<%= edit_vehicle_maintenance_path maintenance.vehicle.id, maintenance.id %>" class="btn btn-link">
+      <i class="fa fa-pencil"></i>
+    </a>
+    <%= form_tag vehicle_maintenance_path(maintenance.vehicle.id, maintenance.id),
+                 method: 'DELETE', class: 'button_form' do %>
+      <button type="submit" class="btn btn-link">
+        <i class="fa fa-times"></i>
+      </button>
+    <% end %>
+  </div>
+</div>

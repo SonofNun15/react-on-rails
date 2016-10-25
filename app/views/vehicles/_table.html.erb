@@ -1,5 +1,10 @@
 <div class="data-table">
   <% vehicle.line_items.each do |line_item| %>
-    <%= render partial: 'line_item', locals: { line_item: line_item } %>
+    <% item_type = line_item.class %>
+    <% if item_type == Fueling %>
+      <%= render partial: 'fueling', locals: { fueling: line_item } %>
+    <% elsif item_type == Maintenance %>
+      <%= render partial: 'maintenance', locals: { maintenance: line_item } %>
+    <% end %>
   <% end %>
 </div>
