@@ -1,6 +1,4 @@
-class VehiclesController < AuthenticatedController
-  before_action :authorize, except: [:new, :create]
-
+class VehiclesController < AuthorizeVehicleController
   def new
     @vehicle = Vehicle.new
     @action_text = 'Create'
@@ -39,12 +37,6 @@ class VehiclesController < AuthenticatedController
   end
 
   private
-
-  def authorize
-    @vehicle = Vehicle.find params[:id]
-    session_manager = Session.new(session)
-    redirect_to login_path unless session_manager.user_id == @vehicle.user.id
-  end
 
   def vehicle_params
     params.require(:vehicle).permit(:year, :make, :model, :color, :base_mileage)
