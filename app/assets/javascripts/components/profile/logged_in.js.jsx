@@ -23,13 +23,11 @@ var LoggedIn = React.createClass({
           </li>
           <li role="separator" className="divider"></li>
           <li>
-            <form method="post" action="/logout" acceptCharset="UTF-8">
-              <input type='hidden' name='utf8' value='✓' />
-              <CSRFToken />
+            <RailsForm method="post" action="/logout" contents={
               <button type="submit">
                 <i className="fa fa-sign-out"></i> Logout
               </button>
-            </form>
+            } />
           </li>
         </ul>
       </div>
