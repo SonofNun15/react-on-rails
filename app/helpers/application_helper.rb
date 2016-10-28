@@ -16,15 +16,6 @@ module ApplicationHelper
   def user_gravatar
     session_manager = Session.new(session)
     return unless session_manager.logged_in?
-    email = session_manager.user.email
-                                .strip
-                                .downcase
-
-    digest = Digest::MD5.new
-    digest.update email
-
-    hash = digest.hexdigest
-
-    "https://www.gravatar.com/avatar/#{hash}?s=96&d=identicon"
+    "https://www.gravatar.com/avatar/#{session_manager.user.gravatar_hash}?s=96&d=identicon"
   end
 end
