@@ -1,7 +1,4 @@
 class SessionController < ApplicationController
-  def new
-  end
-
   def create
     parameters = login_params
     user = User.find_by email: parameters[:email]

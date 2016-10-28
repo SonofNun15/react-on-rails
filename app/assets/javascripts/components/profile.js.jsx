@@ -1,15 +1,18 @@
 var Profile = React.createClass({
   propTypes: {
     loggedIn: React.PropTypes.bool,
-    user: React.PropTypes.node
+    user: React.PropTypes.shape({
+      name: React.PropTypes.string,
+      email: React.PropTypes.string,
+      gravatarHash: React.PropTypes.string,
+    }),
   },
 
   render: function() {
-    return (
-      <div>
-        <div>Logged In: {this.props.loggedIn}</div>
-        <div>User: {this.props.user}</div>
-      </div>
-    );
+    if (this.props.loggedIn) {
+      return <LoggedIn name={this.props.user.name} gravatarHash={this.props.user.gravatarHash} />
+    } else {
+      return <LoggedOut />
+    }
   }
 });

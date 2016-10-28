@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'password' => 'users#edit_password'
   post 'password' => 'users#update_password'
 
-  get 'login' => 'session#new'
   post 'login' => 'session#create'
   post 'logout' => 'session#destroy'
 
