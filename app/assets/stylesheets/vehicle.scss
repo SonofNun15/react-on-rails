@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .vehicle {
-  > .title {
+  .title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
 
-  > .maintenance {
+  .maintenance {
     text-align: center;
     font-size: 1.2em;
   }

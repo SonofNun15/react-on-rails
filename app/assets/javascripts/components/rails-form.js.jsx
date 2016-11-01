@@ -3,6 +3,7 @@ var RailsForm = React.createClass({
    method: React.PropTypes.string,
    action: React.PropTypes.string,
    contents: React.PropTypes.element,
+   className: React.PropTypes.string,
   },
 
   getMethod: function() {
@@ -15,7 +16,8 @@ var RailsForm = React.createClass({
 
   render: function() {
     return (
-      <form method={this.getMethod()} action={this.props.action} acceptCharset="UTF-8">
+      <form method={this.getMethod()} action={this.props.action} acceptCharset="UTF-8"
+            className={this.props.className}>
         <input type="hidden" name="utf8" value="✓" />
         <input type="hidden" name="_method" value={this.props.method} />
         <CSRFToken />
