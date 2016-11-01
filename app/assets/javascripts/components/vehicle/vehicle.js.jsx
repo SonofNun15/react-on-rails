@@ -6,7 +6,8 @@ var Vehicle = React.createClass({
       year: React.PropTypes.number,
       make: React.PropTypes.string,
       model: React.PropTypes.string,
-    })
+      mpg: mpgType, // from mpg_summary.js.jsx
+    }).isRequired,
   },
 
   render: function() {
@@ -18,7 +19,7 @@ var Vehicle = React.createClass({
                       year={vehicle.year} make={vehicle.make} model={vehicle.model} />
         <div className="summaries row">
           <div className="col-sm-6">
-            <MPGSummary />
+            <MPGSummary mpg={this.props.vehicle.mpg} />
           </div>
           <div className="col-sm-6">
             <MileageSummary />

@@ -1,10 +1,10 @@
 var VehicleTitle = React.createClass({
   propTypes: {
     requiresMaintenance: React.PropTypes.bool,
-    vehicleId: React.PropTypes.number,
-    year: React.PropTypes.number,
-    make: React.PropTypes.string,
-    model: React.PropTypes.string,
+    vehicleId: React.PropTypes.number.isRequired,
+    year: React.PropTypes.number.isRequired,
+    make: React.PropTypes.string.isRequired,
+    model: React.PropTypes.string.isRequired,
   },
 
   render: function() {
