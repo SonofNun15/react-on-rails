@@ -1,5 +1,4 @@
-              <input type='hidden' name='utf8' value='✓' />
- var LoginDialog = React.createClass({
+var LoginDialog = React.createClass({
   open: function() {
     $('#login-dialog').modal();
   },

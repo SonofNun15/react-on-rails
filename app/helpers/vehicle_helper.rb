@@ -5,4 +5,14 @@ module VehicleHelper
                           precision: 2,
                           strip_insignificant_zeros: true
   end
+
+  def react_vehicle(vehicle)
+    {
+      id: vehicle.id,
+      needsMaintenance: vehicle.needs_maintenance?,
+      year: vehicle.year,
+      make: vehicle.make,
+      model: vehicle.model,
+    }
+  end
 end

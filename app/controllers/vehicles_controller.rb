@@ -16,9 +16,6 @@ class VehiclesController < AuthorizeVehicleController
     redirect_to root_path
   end
 
-  def show
-  end
-
   def edit
     @action_text = 'Save'
     @action = vehicle_path params[:id]
