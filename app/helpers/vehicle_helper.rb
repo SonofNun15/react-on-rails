@@ -13,6 +13,10 @@ module VehicleHelper
       year: vehicle.year,
       make: vehicle.make,
       model: vehicle.model,
+      mpg: {
+        lifetime: pretty_number(vehicle.lifetime_mpg),
+        recent: pretty_number(vehicle.recent_mpg(6.months)),
+      },
     }
   end
 end
