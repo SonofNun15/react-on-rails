@@ -7,6 +7,7 @@ var Vehicle = React.createClass({
       make: React.PropTypes.string,
       model: React.PropTypes.string,
       mpg: mpgType, // from mpg_summary.js.jsx
+      mileage: mileageType, // from mileage_summary.js.jsx
     }).isRequired,
   },
 
@@ -22,7 +23,7 @@ var Vehicle = React.createClass({
             <MPGSummary mpg={this.props.vehicle.mpg} />
           </div>
           <div className="col-sm-6">
-            <MileageSummary />
+            <MileageSummary mileage={this.props.vehicle.mileage} />
           </div>
         </div>
         <div className="buttons">

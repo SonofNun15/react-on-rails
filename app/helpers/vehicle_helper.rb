@@ -17,6 +17,11 @@ module VehicleHelper
         lifetime: pretty_number(vehicle.lifetime_mpg),
         recent: pretty_number(vehicle.recent_mpg(6.months)),
       },
+      mileage: {
+        lifetime: pretty_number(vehicle.lifetime_mileage),
+        recent: pretty_number(vehicle.recent_mileage(6.months)),
+        sinceMaintenance: pretty_number(vehicle.miles_since_maintenance),
+      }
     }
   end
 end
