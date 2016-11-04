@@ -12,8 +12,31 @@ var Vehicle = React.createClass({
     }).isRequired,
   },
 
+  getInitialState: function() {
+    return {
+      editor: null,
+    };
+  },
+
+  addFueling: function() {
+    var fuelingEditor = <FuelingEditor close={this.closeEditor} />
+
+    this.setState({ editor: fuelingEditor });
+  },
+
+  addMaintenance: function() {
+    var maintenanceEditor = <MaintenanceEditor close={this.closeEditor} />
+
+    this.setState({ editor: maintenanceEditor });
+  },
+
+  closeEditor: function() {
+    this.setState({ editor: null });
+  },
+
   render: function() {
     var vehicle = this.props.vehicle;
+    var editor = <div className="editors">{this.state.editor}</div>
 
     return (
       <div className="vehicle">
@@ -28,13 +51,16 @@ var Vehicle = React.createClass({
           </div>
         </div>
         <div className="buttons">
-          <a href="/vehicles/11/fuelings/new" className="btn btn-default">
+          <button type="button" className="btn btn-default"
+                  onClick={this.addFueling}>
             <i className="fa fa-tachometer"></i> Add fueling
-          </a>
-          <a href="/vehicles/11/maintenance/new" className="btn btn-default">
+          </button>
+          <button type="button" className="btn btn-default"
+                  onClick={this.addMaintenance}>
             <i className="fa fa-wrench"></i> Add maintenance
-          </a>
+          </button>
         </div>
+        { this.state.editor ? editor : null }
         <VehicleDataTable vehicleId={vehicle.id} lineItems={this.props.vehicle.lineItems} />
       </div>
     );
