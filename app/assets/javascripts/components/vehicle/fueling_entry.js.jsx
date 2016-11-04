@@ -11,8 +11,8 @@ var FuelingEntry = React.createClass({
   },
 
   render: function() {
-    var deleteUrl = '/vehicle/' + this.props.vehicleId +
-                    '/fueling/' + this.props.fueling.id;
+    var deleteUrl = '/vehicles/' + this.props.vehicleId +
+                    '/fuelings/' + this.props.fueling.id;
 
     var editUrl = deleteUrl + '/edit'
 
