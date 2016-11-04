@@ -8,6 +8,7 @@ var Vehicle = React.createClass({
       model: React.PropTypes.string,
       mpg: mpgType, // from mpg_summary.js.jsx
       mileage: mileageType, // from mileage_summary.js.jsx
+      lineItems: React.PropTypes.array,
     }).isRequired,
   },
 
@@ -34,7 +35,7 @@ var Vehicle = React.createClass({
             <i className="fa fa-wrench"></i> Add maintenance
           </a>
         </div>
-        <VehicleDataTable />
+        <VehicleDataTable vehicleId={vehicle.id} lineItems={this.props.vehicle.lineItems} />
       </div>
     );
   },
