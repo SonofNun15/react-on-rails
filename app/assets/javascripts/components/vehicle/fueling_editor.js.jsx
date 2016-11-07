@@ -40,23 +40,23 @@ var FuelingEditor = React.createClass({
         <form className="form-inline" onSubmit={this.createFueling}>
           <div className="form-group">
             <input className="form-control" placeholder="Gas"
-                   value={this.state.gas}
-                   type="number" onChange={function(e) { this.onChange({ gas: e.target.value }) }.bind(this)} />
+                   type="number" value={this.state.gas}
+                   onChange={function(e) { this.onChange({ gas: e.target.value }) }.bind(this)} />
           </div>
           <div className="form-group">
             <input className="form-control" placeholder="Miles"
-                   value={this.state.miles}
-                   type="number" onChange={function(e) { this.onChange({ miles: e.target.value }) }.bind(this)} />
+                   type="number" value={this.state.miles}
+                   onChange={function(e) { this.onChange({ miles: e.target.value }) }.bind(this)} />
           </div>
           <div className="form-group">
             <input className="form-control" placeholder="Cost"
-                   value={this.state.cost}
-                   type="number" onChange={function(e) { this.onChange({ cost: e.target.value }) }.bind(this)} />
+                   type="number" value={this.state.cost}
+                   onChange={function(e) { this.onChange({ cost: e.target.value }) }.bind(this)} />
           </div>
           <div className="form-group">
             <input className="form-control" placeholder="Date"
-                   value={this.state.date}
-                   type="date" onChange={function(e) { this.onChange({ date: e.target.value }) }.bind(this)} />
+                   type="date" value={this.state.date}
+                   onChange={function(e) { this.onChange({ date: e.target.value }) }.bind(this)} />
           </div>
           <div className="pull-right buttons">
             <button type="button" className="btn btn-danger"
