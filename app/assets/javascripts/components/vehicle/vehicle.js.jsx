@@ -19,13 +19,15 @@ var Vehicle = React.createClass({
   },
 
   addFueling: function() {
-    var fuelingEditor = <FuelingEditor close={this.closeEditor} />
+    var fuelingEditor = <FuelingEditor vehicleId={this.props.vehicle.id}
+                                       close={this.closeEditor} />
 
     this.setState({ editor: fuelingEditor });
   },
 
   addMaintenance: function() {
-    var maintenanceEditor = <MaintenanceEditor close={this.closeEditor} />
+    var maintenanceEditor = <MaintenanceEditor vehicleId={this.props.vehicle.id}
+                                               close={this.closeEditor} />
 
     this.setState({ editor: maintenanceEditor });
   },
