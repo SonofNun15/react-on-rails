@@ -1,4 +1,8 @@
-var LoginDialog = React.createClass({
+var React = require('react');
+
+var RailsForm = require('../rails_form.jsx');
+
+module.exports = React.createClass({
   open: function() {
     $('#login-dialog').modal();
   },
@@ -36,4 +40,4 @@ var LoginDialog = React.createClass({
       </div>
     );
   }
-})
+});

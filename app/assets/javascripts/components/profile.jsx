@@ -1,4 +1,9 @@
-var Profile = React.createClass({
+var React = require('react');
+
+var LoggedIn = require('./profile/logged_in.jsx');
+var LoggedOut = require('./profile/logged_out.jsx');
+
+module.exports = React.createClass({
   propTypes: {
     loggedIn: React.PropTypes.bool,
     user: React.PropTypes.shape({

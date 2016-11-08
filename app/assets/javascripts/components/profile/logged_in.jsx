@@ -1,4 +1,8 @@
-var LoggedIn = React.createClass({
+var React = require('react');
+
+var RailsForm = require('../rails_form.jsx');
+
+module.exports = React.createClass({
   propTypes: {
     name: React.PropTypes.string,
     gravatarHash: React.PropTypes.string,

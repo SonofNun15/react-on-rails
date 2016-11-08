@@ -1,4 +1,6 @@
-var CSRFToken = React.createClass({
+var React = require('react');
+
+module.exports = React.createClass({
   csrfToken: $('meta[name=csrf-token]').attr('content'),
 
   render: function() {

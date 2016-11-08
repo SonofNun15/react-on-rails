@@ -1,9 +1,13 @@
-var RailsForm = React.createClass({
+var React = require('react');
+
+var CSRFToken = require('./csrf_token.jsx');
+
+module.exports = React.createClass({
   propTypes: {
-   method: React.PropTypes.string,
-   action: React.PropTypes.string,
-   contents: React.PropTypes.element,
-   className: React.PropTypes.string,
+    method: React.PropTypes.string,
+    action: React.PropTypes.string,
+    contents: React.PropTypes.element,
+    className: React.PropTypes.string,
   },
 
   getMethod: function() {

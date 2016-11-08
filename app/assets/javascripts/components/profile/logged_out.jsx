@@ -1,4 +1,8 @@
-var LoggedOut = React.createClass({
+var React = require('react');
+
+var LoginDialog = require('./login_dialog.jsx');
+
+module.exports = React.createClass({
   openDialog: function() {
     this.refs.dialog.open();
   },
