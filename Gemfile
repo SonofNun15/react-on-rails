@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 
 gem 'react-rails'
+gem 'browserify-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
