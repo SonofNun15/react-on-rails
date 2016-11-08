@@ -1,4 +1,8 @@
-var VehicleTitle = React.createClass({
+var React = require('react');
+
+var RailsForm = require('../rails_form.jsx');
+
+module.exports = React.createClass({
   propTypes: {
     requiresMaintenance: React.PropTypes.bool,
     vehicleId: React.PropTypes.number.isRequired,

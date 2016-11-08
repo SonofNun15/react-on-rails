@@ -1,12 +1,17 @@
-var mpgType = React.PropTypes.shape({
+var React = require('react');
+
+var mileageType = React.PropTypes.shape({
   lifetime: React.PropTypes.string,
   recent: React.PropTypes.string,
-}).isRequired;
+  sinceMaintenance: React.PropTypes.string,
+});
 
-var MPGSummary = React.createClass({
+module.exports = React.createClass({
   propTypes: {
-    mpg: mpgType,
+    mileage: mileageType,
   },
+
+  mileageType: mileageType,
 
   render: function() {
     return (
@@ -16,17 +21,23 @@ var MPGSummary = React.createClass({
           <span className="lifetime col-xs-6">
             <span className="entry-label">Lifetime: </span>
             <span className="value">
-              {this.props.mpg.lifetime} MPG
+              {this.props.mileage.lifetime} miles
             </span>
           </span>
           <span className="6mo col-xs-6">
             <span className="entry-label">6 months: </span>
             <span className="value">
-              {this.props.mpg.recent} MPG
+              {this.props.mileage.recent} miles
+            </span>
+          </span>
+          <span className="maintenance-miles col-xs-12">
+            <span className="entry-label">Since maintenance: </span>
+            <span className="value">
+              {this.props.mileage.sinceMaintenance} miles
             </span>
           </span>
         </div>
       </div>
     );
-  }
+  },
 });

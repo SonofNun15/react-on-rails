@@ -1,2 +1,2 @@
 global.Profile = require('./components/profile.jsx');
-//global.Vehicle = require('./components/vehicle/vehicle');
+global.Vehicle = require('./components/vehicle/vehicle.jsx');

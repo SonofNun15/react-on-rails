@@ -1,4 +1,9 @@
-var VehicleDataTable = React.createClass({
+var React = require('react');
+
+var FuelingEntry = require('./fueling_entry.jsx');
+var MaintenanceEntry = require('./maintenance_entry.jsx');
+
+module.exports = React.createClass({
   propTypes: {
     vehicleId: React.PropTypes.number,
     lineItems: React.PropTypes.array,

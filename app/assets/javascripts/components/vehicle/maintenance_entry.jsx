@@ -1,4 +1,8 @@
-var MaintenanceEntry = React.createClass({
+var React = require('react');
+
+var RailsForm = require('../rails_form.jsx');
+
+module.exports = React.createClass({
   propTypes: {
     vehicleId: React.PropTypes.number.isRequired,
     maintenance: React.PropTypes.shape({
@@ -45,4 +49,4 @@ var MaintenanceEntry = React.createClass({
       </div>
     );
   },
-})
+});

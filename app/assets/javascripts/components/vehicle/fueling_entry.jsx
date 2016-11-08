@@ -1,4 +1,8 @@
-var FuelingEntry = React.createClass({
+var React = require('react');
+
+var RailsForm = require('../rails_form.jsx');
+
+module.exports = React.createClass({
   propTypes: {
     vehicleId: React.PropTypes.number,
     fueling: React.PropTypes.shape({

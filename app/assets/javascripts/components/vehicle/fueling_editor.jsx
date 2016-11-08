@@ -1,4 +1,9 @@
-var FuelingEditor = React.createClass({
+var React = require('react');
+
+var AjaxUtility = require('../../utilities/ajax_util');
+var DateUtility = require('../../utilities/date_util');
+
+module.exports = React.createClass({
   propTypes: {
     vehicleId: React.PropTypes.number,
     close: React.PropTypes.func,

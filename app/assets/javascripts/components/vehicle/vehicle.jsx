@@ -1,4 +1,13 @@
-var Vehicle = React.createClass({
+var React = require('react');
+
+var VehicleTitle = require('./title.jsx');
+var MPGSummary = require('./mpg_summary.jsx');
+var MileageSummary = require('./mileage_summary.jsx');
+var VehicleDataTable = require('./table.jsx');
+var FuelingEditor = require('./fueling_editor.jsx');
+var MaintenanceEditor = require('./maintenance_editor.jsx');
+
+module.exports = React.createClass({
   propTypes: {
     vehicle: React.PropTypes.shape({
       id: React.PropTypes.number,
@@ -6,8 +15,8 @@ var Vehicle = React.createClass({
       year: React.PropTypes.number,
       make: React.PropTypes.string,
       model: React.PropTypes.string,
-      mpg: mpgType, // from mpg_summary.js.jsx
-      mileage: mileageType, // from mileage_summary.js.jsx
+      mpg: MPGSummary.mpgType, // from mpg_summary.js.jsx
+      mileage: MileageSummary.mileageType, // from mileage_summary.js.jsx
       lineItems: React.PropTypes.array,
     }).isRequired,
   },
