@@ -16,6 +16,10 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
-//= require components
-//= require_tree .
 //= require bootstrap
+
+//= require session
+//= require users
+//= require vehicle
+
+require('./components');
