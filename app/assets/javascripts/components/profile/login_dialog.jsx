@@ -1,13 +1,13 @@
-var React = require('react');
+import React from 'react'
 
-var RailsForm = require('../rails_form.jsx');
+import RailsForm from '../rails_form.jsx'
 
-module.exports = React.createClass({
-  open: function() {
-    $('#login-dialog').modal();
-  },
+class LoginDialog extends React.Component {
+  open() {
+    $('#login-dialog').modal()
+  }
 
-  render: function() {
+  render() {
     return (
       <div id="login-dialog" className="modal fade" tabIndex="-1" role="dialog">
         <div className="modal-dialog" role="document">
@@ -38,6 +38,8 @@ module.exports = React.createClass({
           </div>
         </div>
       </div>
-    );
+    )
   }
-});
+}
+
+export default LoginDialog

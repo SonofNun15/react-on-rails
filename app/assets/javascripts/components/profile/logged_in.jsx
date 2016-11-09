@@ -1,14 +1,9 @@
-var React = require('react');
+import React from 'react'
 
-var RailsForm = require('../rails_form.jsx');
+import RailsForm from '../rails_form.jsx'
 
-module.exports = React.createClass({
-  propTypes: {
-    name: React.PropTypes.string,
-    gravatarHash: React.PropTypes.string,
-  },
-
-  render: function() {
+class LoggedIn extends React.Component {
+  render() {
     return (
       <div className="dropdown">
         <div className="profile" data-toggle="dropdown" tabIndex="0">
@@ -35,6 +30,13 @@ module.exports = React.createClass({
           </li>
         </ul>
       </div>
-    );
+    )
   }
-});
+}
+
+LoggedIn.propTypes = {
+  name: React.PropTypes.string,
+  gravatarHash: React.PropTypes.string,
+}
+
+export default LoggedIn

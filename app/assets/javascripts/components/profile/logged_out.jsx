@@ -1,18 +1,20 @@
-var React = require('react');
+import React from 'react'
 
-var LoginDialog = require('./login_dialog.jsx');
+import LoginDialog from './login_dialog.jsx'
 
-module.exports = React.createClass({
-  openDialog: function() {
+class LoggedOut extends React.Component {
+  openDialog() {
     this.refs.dialog.open();
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <div>
-        <button className="btn btn-default" onClick={this.openDialog}>Login</button>
+        <button className="btn btn-default" onClick={this.openDialog.bind(this)}>Login</button>
         <LoginDialog ref="dialog" />
       </div>
-    );
+    )
   }
-})
+}
+
+export default LoggedOut
