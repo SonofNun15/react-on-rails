@@ -8,7 +8,7 @@ class FuelingEditor extends React.Component {
       gas: '',
       miles: '',
       cost: '',
-      date: DateUtility.toDateString(now),
+      date: dateUtil.toDateString(now),
     }
   }
 
@@ -20,7 +20,7 @@ class FuelingEditor extends React.Component {
     var url = '/vehicles/' + this.props.vehicleId +
               '/fuelings'
 
-    AjaxUtility.post(url, { fueling: this.state }, function(result) {
+    ajax.post(url, { fueling: this.state }, function(result) {
      console.log(result)
     })
     e.preventDefault()

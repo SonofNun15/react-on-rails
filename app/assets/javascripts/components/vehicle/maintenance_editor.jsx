@@ -8,7 +8,7 @@ class MaintenanceEditor extends React.Component {
       mechanic: '',
       description: '',
       cost: '',
-      date: DateUtility.toDateString(now),
+      date: dateUtil.toDateString(now),
     }
   }
 
@@ -20,7 +20,7 @@ class MaintenanceEditor extends React.Component {
     var url = '/vehicles/' + this.props.vehicleId +
               '/maintenance'
 
-    AjaxUtility.post(url, { maintenance: this.state }, function(result) {
+    ajax.post(url, { maintenance: this.state }, function(result) {
       console.log(result)
     })
     e.preventDefault()
