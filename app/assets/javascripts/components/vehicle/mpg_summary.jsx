@@ -1,14 +1,10 @@
-var mpgType = React.PropTypes.shape({
+const mpgType = React.PropTypes.shape({
   lifetime: React.PropTypes.string,
   recent: React.PropTypes.string,
 }).isRequired;
 
-var MPGSummary = React.createClass({
-  propTypes: {
-    mpg: mpgType,
-  },
-
-  render: function() {
+class MPGSummary extends React.Component {
+  render() {
     return (
       <div className="mileage-summary">
         <h3>Mileage</h3>
@@ -27,6 +23,10 @@ var MPGSummary = React.createClass({
           </span>
         </div>
       </div>
-    );
+    )
   }
-});
+}
+
+MPGSummary.propTypes = {
+  mpg: mpgType,
+}

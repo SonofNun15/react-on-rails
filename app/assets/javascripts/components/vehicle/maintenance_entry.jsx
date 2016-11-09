@@ -1,20 +1,9 @@
-var MaintenanceEntry = React.createClass({
-  propTypes: {
-    vehicleId: React.PropTypes.number.isRequired,
-    maintenance: React.PropTypes.shape({
-      id: React.PropTypes.number.isRequired,
-      needsAttention: React.PropTypes.bool.isRequired,
-      mechanic: React.PropTypes.string.isRequired,
-      description: React.PropTypes.string,
-      date: React.PropTypes.string.isRequired,
-    }).isRequired,
-  },
-
-  render: function() {
+class MaintenanceEntry extends React.Component {
+  render() {
     var deleteUrl = '/vehicles/' + this.props.vehicleId +
-                    '/maintenance/' + this.props.maintenance.id;
+                    '/maintenance/' + this.props.maintenance.id
 
-    var editUrl = deleteUrl + '/edit';
+    var editUrl = deleteUrl + '/edit'
 
     indicator = <i className="fa fa-exclamation-circle important"></i>
 
@@ -43,6 +32,17 @@ var MaintenanceEntry = React.createClass({
           } />
         </div>
       </div>
-    );
-  },
-})
+    )
+  }
+}
+
+MaintenanceEntry.propTypes = {
+  vehicleId: React.PropTypes.number.isRequired,
+  maintenance: React.PropTypes.shape({
+    id: React.PropTypes.number.isRequired,
+    needsAttention: React.PropTypes.bool.isRequired,
+    mechanic: React.PropTypes.string.isRequired,
+    description: React.PropTypes.string,
+    date: React.PropTypes.string.isRequired,
+  }).isRequired,
+}

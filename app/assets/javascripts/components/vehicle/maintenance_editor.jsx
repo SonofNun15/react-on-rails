@@ -1,46 +1,43 @@
-var MaintenanceEditor = React.createClass({
-  propTypes: {
-    vehicleId: React.PropTypes.number,
-    close: React.PropTypes.func,
-  },
+class MaintenanceEditor extends React.Component {
+  constructor() {
+    super()
 
-  getInitialState: function() {
     var now = new Date();
 
-    return {
+    this.state = {
       mechanic: '',
       description: '',
       cost: '',
       date: DateUtility.toDateString(now),
-    };
-  },
+    }
+  }
 
-  close: function() {
-    this.props.close();
-  },
+  close() {
+    this.props.close()
+  }
 
-  createMaintenance: function(e) {
+  createMaintenance(e) {
     var url = '/vehicles/' + this.props.vehicleId +
-              '/maintenance';
+              '/maintenance'
 
     AjaxUtility.post(url, { maintenance: this.state }, function(result) {
-      console.log(result);
-    });
-    e.preventDefault();
-  },
+      console.log(result)
+    })
+    e.preventDefault()
+  }
 
-  onChange: function(maintenance) {
-    var newState = Object.assign({}, this.state, maintenance);
-    this.setState(newState);
-  },
+  onChange(maintenance) {
+    var newState = Object.assign({}, this.state, maintenance)
+    this.setState(newState)
+  }
 
-  render: function() {
+  render() {
     var newMaintenanceUrl = '/vehicles' + this.props.vehicleId +
                             '/maintenance'
 
     return (
       <div>
-        <form className="form-inline" onSubmit={this.createMaintenance}>
+        <form className="form-inline" onSubmit={this.createMaintenance.bind(this)}>
           <div>
             <div className="form-group">
               <input className="form-control" placeholder="Mechanic"
@@ -64,7 +61,7 @@ var MaintenanceEditor = React.createClass({
             </div>
             <div className="pull-right buttons">
               <button type="button" className="btn btn-danger"
-                      onClick={this.close}>
+                      onClick={this.close.bind(this)}>
                 <i className="fa fa-times"></i> Close
               </button>
               <button type="submit" className="btn btn-success">
@@ -75,6 +72,11 @@ var MaintenanceEditor = React.createClass({
           </div>
         </form>
       </div>
-    );
-  },
-});
+    )
+  }
+}
+
+MaintenanceEditor.propTypes = {
+  vehicleId: React.PropTypes.number,
+  close: React.PropTypes.func,
+}

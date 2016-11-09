@@ -1,20 +1,13 @@
-var RailsForm = React.createClass({
-  propTypes: {
-   method: React.PropTypes.string,
-   action: React.PropTypes.string,
-   contents: React.PropTypes.element,
-   className: React.PropTypes.string,
-  },
-
-  getMethod: function() {
+class RailsForm extends React.Component {
+  getMethod() {
     if (this.props.method.toLowerCase() == 'get') {
       return 'GET';
     } else {
       return 'POST';
     }
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <form method={this.getMethod()} action={this.props.action} acceptCharset="UTF-8"
             className={this.props.className}>
@@ -23,6 +16,13 @@ var RailsForm = React.createClass({
         <CSRFToken />
         {this.props.contents}
       </form>
-    );
-  },
-})
+    )
+  }
+}
+
+RailsForm.propTypes = {
+  method: React.PropTypes.string,
+  action: React.PropTypes.string,
+  contents: React.PropTypes.element,
+  className: React.PropTypes.string,
+}

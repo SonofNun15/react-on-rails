@@ -1,18 +1,7 @@
-var FuelingEntry = React.createClass({
-  propTypes: {
-    vehicleId: React.PropTypes.number,
-    fueling: React.PropTypes.shape({
-      id: React.PropTypes.number,
-      aboveAverageMpg: React.PropTypes.bool,
-      mpg: React.PropTypes.string,
-      miles: React.PropTypes.string,
-      date: React.PropTypes.string,
-    })
-  },
-
-  render: function() {
+class FuelingEntry extends React.Component {
+  render() {
     var deleteUrl = '/vehicles/' + this.props.vehicleId +
-                    '/fuelings/' + this.props.fueling.id;
+                    '/fuelings/' + this.props.fueling.id
 
     var editUrl = deleteUrl + '/edit'
 
@@ -44,6 +33,17 @@ var FuelingEntry = React.createClass({
           } />
         </div>
       </div>
-    );
-  },
-})
+    )
+  }
+}
+
+FuelingEditor.propTypes = {
+  vehicleId: React.PropTypes.number,
+  fueling: React.PropTypes.shape({
+    id: React.PropTypes.number,
+    aboveAverageMpg: React.PropTypes.bool,
+    mpg: React.PropTypes.string,
+    miles: React.PropTypes.string,
+    date: React.PropTypes.string,
+  })
+}

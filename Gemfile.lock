@@ -191,6 +191,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  babel-transpiler
   bcrypt
   bootstrap-sass
   font-awesome-rails
@@ -205,6 +206,8 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  sprockets
+  sprockets-rails
   sqlite3
   turbolinks (~> 5)
   tzinfo-data

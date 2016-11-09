@@ -1,43 +1,40 @@
-var FuelingEditor = React.createClass({
-  propTypes: {
-    vehicleId: React.PropTypes.number,
-    close: React.PropTypes.func,
-  },
+class FuelingEditor extends React.Component {
+  constructor() {
+    super()
 
-  getInitialState: function() {
-    var now = new Date();
+    var now = new Date()
 
-    return {
+    this.state = {
       gas: '',
       miles: '',
       cost: '',
       date: DateUtility.toDateString(now),
-    };
-  },
+    }
+  }
 
-  close: function() {
-    this.props.close();
-  },
+  close() {
+    this.props.close()
+  }
 
-  createFueling: function(e) {
+  createFueling(e) {
     var url = '/vehicles/' + this.props.vehicleId +
-              '/fuelings';
+              '/fuelings'
 
     AjaxUtility.post(url, { fueling: this.state }, function(result) {
-     console.log(result);
-    });
-    e.preventDefault();
-  },
+     console.log(result)
+    })
+    e.preventDefault()
+  }
 
-  onChange: function(fueling) {
-    var newState = Object.assign({}, this.state, fueling);
-    this.setState(newState);
-  },
+  onChange(fueling) {
+    var newState = Object.assign({}, this.state, fueling)
+    this.setState(newState)
+  }
 
-  render: function() {
+  render() {
     return (
       <div>
-        <form className="form-inline" onSubmit={this.createFueling}>
+        <form className="form-inline" onSubmit={this.createFueling.bind(this)}>
           <div className="form-group">
             <input className="form-control" placeholder="Gas"
                    type="number" value={this.state.gas}
@@ -60,7 +57,7 @@ var FuelingEditor = React.createClass({
           </div>
           <div className="pull-right buttons">
             <button type="button" className="btn btn-danger"
-                    onClick={this.close}>
+                    onClick={this.close.bind(this)}>
               <i className="fa fa-times"></i> Close
             </button>
             <button type="submit" className="btn btn-success">
@@ -70,6 +67,11 @@ var FuelingEditor = React.createClass({
           <div className="clearfix"></div>
         </form>
       </div>
-    );
-  },
-});
+    )
+  }
+}
+
+FuelingEditor.propTypes = {
+  vehicleId: React.PropTypes.number,
+  close: React.PropTypes.func,
+}

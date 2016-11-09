@@ -1,9 +1,9 @@
-var LoginDialog = React.createClass({
-  open: function() {
-    $('#login-dialog').modal();
-  },
+class LoginDialog extends React.Component {
+  open() {
+    $('#login-dialog').modal()
+  }
 
-  render: function() {
+  render() {
     return (
       <div id="login-dialog" className="modal fade" tabIndex="-1" role="dialog">
         <div className="modal-dialog" role="document">
@@ -34,6 +34,6 @@ var LoginDialog = React.createClass({
           </div>
         </div>
       </div>
-    );
+    )
   }
-})
+}

@@ -17,6 +17,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 
 gem 'react-rails'
+gem 'sprockets-rails'
+gem 'sprockets'
+gem 'babel-transpiler'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

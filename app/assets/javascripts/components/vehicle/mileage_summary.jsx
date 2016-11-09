@@ -1,15 +1,11 @@
-var mileageType = React.PropTypes.shape({
+const mileageType = React.PropTypes.shape({
   lifetime: React.PropTypes.string,
   recent: React.PropTypes.string,
   sinceMaintenance: React.PropTypes.string,
 })
 
-var MileageSummary = React.createClass({
-  propTypes: {
-    mileage: mileageType,
-  },
-
-  render: function() {
+class MileageSummary extends React.Component {
+  render() {
     return (
       <div className="mileage-summary">
         <h3>Mileage</h3>
@@ -34,6 +30,10 @@ var MileageSummary = React.createClass({
           </span>
         </div>
       </div>
-    );
-  },
-});
+    )
+  }
+}
+
+MileageSummary.propTypes = {
+  mileage: mileageType,
+}

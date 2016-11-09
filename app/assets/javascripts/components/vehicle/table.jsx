@@ -1,10 +1,5 @@
-var VehicleDataTable = React.createClass({
-  propTypes: {
-    vehicleId: React.PropTypes.number,
-    lineItems: React.PropTypes.array,
-  },
-
-  render: function() {
+class VehicleDataTable extends React.Component {
+  render() {
     return (
       <div className="data-table">
         {
@@ -19,6 +14,11 @@ var VehicleDataTable = React.createClass({
           }.bind(this))
         }
       </div>
-    );
-  },
-});
+    )
+  }
+}
+
+VehicleDataTable.propTypes = {
+  vehicleId: React.PropTypes.number,
+  lineItems: React.PropTypes.array,
+}

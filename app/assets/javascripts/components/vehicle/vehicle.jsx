@@ -1,43 +1,30 @@
-var Vehicle = React.createClass({
-  propTypes: {
-    vehicle: React.PropTypes.shape({
-      id: React.PropTypes.number,
-      needsMaintenance: React.PropTypes.bool,
-      year: React.PropTypes.number,
-      make: React.PropTypes.string,
-      model: React.PropTypes.string,
-      mpg: mpgType, // from mpg_summary.js.jsx
-      mileage: mileageType, // from mileage_summary.js.jsx
-      lineItems: React.PropTypes.array,
-    }).isRequired,
-  },
+class Vehicle extends React.Component {
+  constructor() {
+    super()
 
-  getInitialState: function() {
-    return {
-      editor: null,
-    };
-  },
+    this.state = { editor: null }
+  }
 
-  addFueling: function() {
+  addFueling() {
     var fuelingEditor = <FuelingEditor vehicleId={this.props.vehicle.id}
-                                       close={this.closeEditor} />
+                                       close={this.closeEditor.bind(this)} />
 
-    this.setState({ editor: fuelingEditor });
-  },
+    this.setState({ editor: fuelingEditor })
+  }
 
-  addMaintenance: function() {
+  addMaintenance() {
     var maintenanceEditor = <MaintenanceEditor vehicleId={this.props.vehicle.id}
-                                               close={this.closeEditor} />
+                                               close={this.closeEditor.bind(this)} />
 
-    this.setState({ editor: maintenanceEditor });
-  },
+    this.setState({ editor: maintenanceEditor })
+  }
 
-  closeEditor: function() {
-    this.setState({ editor: null });
-  },
+  closeEditor() {
+    this.setState({ editor: null })
+  }
 
-  render: function() {
-    var vehicle = this.props.vehicle;
+  render() {
+    var vehicle = this.props.vehicle
     var editor = <div className="editors">{this.state.editor}</div>
 
     return (
@@ -54,17 +41,30 @@ var Vehicle = React.createClass({
         </div>
         <div className="buttons">
           <button type="button" className="btn btn-default"
-                  onClick={this.addFueling}>
+                  onClick={this.addFueling.bind(this)}>
             <i className="fa fa-tachometer"></i> Add fueling
           </button>
           <button type="button" className="btn btn-default"
-                  onClick={this.addMaintenance}>
+                  onClick={this.addMaintenance.bind(this)}>
             <i className="fa fa-wrench"></i> Add maintenance
           </button>
         </div>
         { this.state.editor ? editor : null }
         <VehicleDataTable vehicleId={vehicle.id} lineItems={this.props.vehicle.lineItems} />
       </div>
-    );
-  },
-});
+    )
+  }
+}
+
+Vehicle.propTypes = {
+  vehicle: React.PropTypes.shape({
+    id: React.PropTypes.number,
+    needsMaintenance: React.PropTypes.bool,
+    year: React.PropTypes.number,
+    make: React.PropTypes.string,
+    model: React.PropTypes.string,
+    mpg: mpgType, // from mpg_summary.js.jsx
+    mileage: mileageType, // from mileage_summary.js.jsx
+    lineItems: React.PropTypes.array,
+  }).isRequired,
+}
