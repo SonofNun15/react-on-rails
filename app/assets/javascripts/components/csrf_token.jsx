@@ -1,9 +1,13 @@
-var React = require('react');
+class CSRFToken extends React.Component {
+  constructor() {
+    super()
 
-module.exports = React.createClass({
-  csrfToken: $('meta[name=csrf-token]').attr('content'),
+    this.csrfToken = $('meta[name=csrf-token]').attr('content')
+  }
 
-  render: function() {
+  render() {
     return <input type='hidden' name='authenticity_token' value={this.csrfToken} />
-  },
-});
+  }
+}
+
+export default CSRFToken

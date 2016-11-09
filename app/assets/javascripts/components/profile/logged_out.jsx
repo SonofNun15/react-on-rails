@@ -1,10 +1,8 @@
-import React from 'react'
-
 import LoginDialog from './login_dialog.jsx'
 
 class LoggedOut extends React.Component {
   openDialog() {
-    this.refs.dialog.open();
+    this.refs.dialog.open()
   }
 
   render() {

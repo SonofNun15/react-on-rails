@@ -1,18 +1,10 @@
-var React = require('react');
-
-var mpgType = React.PropTypes.shape({
+export const mpgType = React.PropTypes.shape({
   lifetime: React.PropTypes.string,
   recent: React.PropTypes.string,
-}).isRequired;
+}).isRequired
 
-module.exports = React.createClass({
-  propTypes: {
-    mpg: mpgType,
-  },
-
-  mpgType: mpgType,
-
-  render: function() {
+class MPGSummary extends React.Component {
+  render() {
     return (
       <div className="mileage-summary">
         <h3>Mileage</h3>
@@ -31,6 +23,12 @@ module.exports = React.createClass({
           </span>
         </div>
       </div>
-    );
+    )
   }
-});
+}
+
+MPGSummary.propTypes = {
+  mpg: mpgType,
+}
+
+export default MPGSummary

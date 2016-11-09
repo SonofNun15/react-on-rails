@@ -1,51 +1,46 @@
-var React = require('react');
+import { ajax } from '../../utilities/ajax_util'
+import { date } from '../../utilities/date_util'
 
-var AjaxUtility = require('../../utilities/ajax_util');
-var DateUtility = require('../../utilities/date_util');
+class MaintenanceEditor extends React.Component {
+  constructor() {
+    super()
 
-module.exports = React.createClass({
-  propTypes: {
-    vehicleId: React.PropTypes.number,
-    close: React.PropTypes.func,
-  },
+    const now = new Date()
 
-  getInitialState: function() {
-    var now = new Date();
-
-    return {
+    this.state = {
       mechanic: '',
       description: '',
       cost: '',
-      date: DateUtility.toDateString(now),
-    };
-  },
+      date: date.toDateString(now),
+    }
+  }
 
-  close: function() {
-    this.props.close();
-  },
+  close() {
+    this.props.close()
+  }
 
-  createMaintenance: function(e) {
+  createMaintenance(e) {
     var url = '/vehicles/' + this.props.vehicleId +
-              '/maintenance';
+              '/maintenance'
 
-    AjaxUtility.post(url, { maintenance: this.state }, function(result) {
-      console.log(result);
-    });
-    e.preventDefault();
-  },
+    ajax.post(url, { maintenance: this.state }, function(result) {
+      console.log(result)
+    })
+    e.preventDefault()
+  }
 
-  onChange: function(maintenance) {
-    var newState = Object.assign({}, this.state, maintenance);
-    this.setState(newState);
-  },
+  onChange(maintenance) {
+    var newState = Object.assign({}, this.state, maintenance)
+    this.setState(newState)
+  }
 
-  render: function() {
+  render() {
     var newMaintenanceUrl = '/vehicles' + this.props.vehicleId +
                             '/maintenance'
 
     return (
       <div>
-        <form className="form-inline" onSubmit={this.createMaintenance}>
+        <form className="form-inline" onSubmit={this.createMaintenance.bind(this)}>
           <div>
             <div className="form-group">
               <input className="form-control" placeholder="Mechanic"
@@ -69,7 +64,7 @@ module.exports = React.createClass({
             </div>
             <div className="pull-right buttons">
               <button type="button" className="btn btn-danger"
-                      onClick={this.close}>
+                      onClick={this.close.bind(this)}>
                 <i className="fa fa-times"></i> Close
               </button>
               <button type="submit" className="btn btn-success">
@@ -80,6 +75,13 @@ module.exports = React.createClass({
           </div>
         </form>
       </div>
-    );
-  },
-});
+    )
+  }
+}
+
+MaintenanceEditor.propTypes = {
+  vehicleId: React.PropTypes.number,
+  close: React.PropTypes.func,
+}
+
+export default MaintenanceEditor

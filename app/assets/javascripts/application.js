@@ -14,10 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require react
+//= require react-server
 //= require react_ujs
 //= require bootstrap
-
 //= require session
 //= require users
 //= require vehicle

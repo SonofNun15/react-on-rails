@@ -1,15 +1,8 @@
-var React = require('react');
+import FuelingEntry from './fueling_entry.jsx'
+import MaintenanceEntry from './maintenance_entry.jsx'
 
-var FuelingEntry = require('./fueling_entry.jsx');
-var MaintenanceEntry = require('./maintenance_entry.jsx');
-
-module.exports = React.createClass({
-  propTypes: {
-    vehicleId: React.PropTypes.number,
-    lineItems: React.PropTypes.array,
-  },
-
-  render: function() {
+class VehicleDataTable extends React.Component {
+  render() {
     return (
       <div className="data-table">
         {
@@ -24,6 +17,13 @@ module.exports = React.createClass({
           }.bind(this))
         }
       </div>
-    );
-  },
-});
+    )
+  }
+}
+
+VehicleDataTable.propTypes = {
+  vehicleId: React.PropTypes.number,
+  lineItems: React.PropTypes.array,
+}
+
+export default VehicleDataTable

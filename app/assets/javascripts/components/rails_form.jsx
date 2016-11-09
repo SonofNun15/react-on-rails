@@ -1,24 +1,15 @@
-var React = require('react');
+import CSRFToken from './csrf_token.jsx'
 
-var CSRFToken = require('./csrf_token.jsx');
-
-module.exports = React.createClass({
-  propTypes: {
-    method: React.PropTypes.string,
-    action: React.PropTypes.string,
-    contents: React.PropTypes.element,
-    className: React.PropTypes.string,
-  },
-
-  getMethod: function() {
+class RailsForm extends React.Component {
+  getMethod() {
     if (this.props.method.toLowerCase() == 'get') {
-      return 'GET';
+      return 'GET'
     } else {
-      return 'POST';
+      return 'POST'
     }
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <form method={this.getMethod()} action={this.props.action} acceptCharset="UTF-8"
             className={this.props.className}>
@@ -27,6 +18,15 @@ module.exports = React.createClass({
         <CSRFToken />
         {this.props.contents}
       </form>
-    );
-  },
-})
+    )
+  }
+}
+
+RailsForm.propTypes = {
+  method: React.PropTypes.string,
+  action: React.PropTypes.string,
+  contents: React.PropTypes.element,
+  className: React.PropTypes.string,
+}
+
+export default RailsForm

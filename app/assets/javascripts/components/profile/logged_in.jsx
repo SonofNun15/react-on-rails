@@ -1,5 +1,3 @@
-import React from 'react'
-
 import RailsForm from '../rails_form.jsx'
 
 class LoggedIn extends React.Component {

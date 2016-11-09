@@ -1,7 +1,7 @@
-var AjaxUtility = {
-  post: function(url, data, callback, options) {
-    $.post(url, data, callback, options);
-  },
-};
+export class AjaxUtility {
+  post(url, data, callback, options) {
+    $.post(url, data, callback, options)
+  }
+}
 
-module.exports = AjaxUtility;
+export const ajax = new AjaxUtility()

@@ -1,19 +1,11 @@
-var React = require('react');
-
-var mileageType = React.PropTypes.shape({
+export const mileageType = React.PropTypes.shape({
   lifetime: React.PropTypes.string,
   recent: React.PropTypes.string,
   sinceMaintenance: React.PropTypes.string,
-});
+})
 
-module.exports = React.createClass({
-  propTypes: {
-    mileage: mileageType,
-  },
-
-  mileageType: mileageType,
-
-  render: function() {
+class MileageSummary extends React.Component {
+  render() {
     return (
       <div className="mileage-summary">
         <h3>Mileage</h3>
@@ -38,6 +30,12 @@ module.exports = React.createClass({
           </span>
         </div>
       </div>
-    );
-  },
-});
+    )
+  }
+}
+
+MileageSummary.propTypes = {
+  mileage: mileageType,
+}
+
+export default MileageSummary

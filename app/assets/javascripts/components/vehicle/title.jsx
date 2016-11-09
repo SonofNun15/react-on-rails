@@ -1,17 +1,7 @@
-var React = require('react');
+import RailsForm from '../rails_form.jsx'
 
-var RailsForm = require('../rails_form.jsx');
-
-module.exports = React.createClass({
-  propTypes: {
-    requiresMaintenance: React.PropTypes.bool,
-    vehicleId: React.PropTypes.number.isRequired,
-    year: React.PropTypes.number.isRequired,
-    make: React.PropTypes.string.isRequired,
-    model: React.PropTypes.string.isRequired,
-  },
-
-  render: function() {
+class VehicleTitle extends React.Component {
+  render() {
     var maintenance = <div className="important maintenance">
                         <i className="fa fa-exclamation-circle"></i>
                         Maintenance required!
@@ -38,6 +28,16 @@ module.exports = React.createClass({
         </div>
         { this.props.requiresMaintenance ? maintenance : null }
       </div>
-    );
+    )
   }
-});
+}
+
+VehicleTitle.propTypes = {
+  requiresMaintenance: React.PropTypes.bool,
+  vehicleId: React.PropTypes.number.isRequired,
+  year: React.PropTypes.number.isRequired,
+  make: React.PropTypes.string.isRequired,
+  model: React.PropTypes.string.isRequired,
+}
+
+export default VehicleTitle

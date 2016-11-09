@@ -1,26 +1,13 @@
-var React = require('react');
+import RailsForm from '../rails_form.jsx'
 
-var RailsForm = require('../rails_form.jsx');
+class MaintenanceEntry extends React.Component {
+  render() {
+    const deleteUrl = '/vehicles/' + this.props.vehicleId +
+                    '/maintenance/' + this.props.maintenance.id
 
-module.exports = React.createClass({
-  propTypes: {
-    vehicleId: React.PropTypes.number.isRequired,
-    maintenance: React.PropTypes.shape({
-      id: React.PropTypes.number.isRequired,
-      needsAttention: React.PropTypes.bool.isRequired,
-      mechanic: React.PropTypes.string.isRequired,
-      description: React.PropTypes.string,
-      date: React.PropTypes.string.isRequired,
-    }).isRequired,
-  },
+    const editUrl = deleteUrl + '/edit'
 
-  render: function() {
-    var deleteUrl = '/vehicles/' + this.props.vehicleId +
-                    '/maintenance/' + this.props.maintenance.id;
-
-    var editUrl = deleteUrl + '/edit';
-
-    indicator = <i className="fa fa-exclamation-circle important"></i>
+    const indicator = <i className="fa fa-exclamation-circle important"></i>
 
     return (
       <div className="entry row">
@@ -47,6 +34,19 @@ module.exports = React.createClass({
           } />
         </div>
       </div>
-    );
-  },
-});
+    )
+  }
+}
+
+MaintenanceEntry.propTypes = {
+  vehicleId: React.PropTypes.number.isRequired,
+  maintenance: React.PropTypes.shape({
+    id: React.PropTypes.number.isRequired,
+    needsAttention: React.PropTypes.bool.isRequired,
+    mechanic: React.PropTypes.string.isRequired,
+    description: React.PropTypes.string,
+    date: React.PropTypes.string.isRequired,
+  }).isRequired,
+}
+
+export default MaintenanceEntry

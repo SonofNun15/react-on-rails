@@ -1,5 +1,3 @@
-import React from 'react'
-
 import LoggedIn from './profile/logged_in.jsx'
 import LoggedOut from './profile/logged_out.jsx'
 

@@ -1,22 +1,9 @@
-var React = require('react');
+import RailsForm from '../rails_form.jsx'
 
-var RailsForm = require('../rails_form.jsx');
-
-module.exports = React.createClass({
-  propTypes: {
-    vehicleId: React.PropTypes.number,
-    fueling: React.PropTypes.shape({
-      id: React.PropTypes.number,
-      aboveAverageMpg: React.PropTypes.bool,
-      mpg: React.PropTypes.string,
-      miles: React.PropTypes.string,
-      date: React.PropTypes.string,
-    })
-  },
-
-  render: function() {
+class FuelingEntry extends React.Component {
+  render() {
     var deleteUrl = '/vehicles/' + this.props.vehicleId +
-                    '/fuelings/' + this.props.fueling.id;
+                    '/fuelings/' + this.props.fueling.id
 
     var editUrl = deleteUrl + '/edit'
 
@@ -48,6 +35,19 @@ module.exports = React.createClass({
           } />
         </div>
       </div>
-    );
-  },
-})
+    )
+  }
+}
+
+FuelingEntry.propTypes = {
+  vehicleId: React.PropTypes.number,
+  fueling: React.PropTypes.shape({
+    id: React.PropTypes.number,
+    aboveAverageMpg: React.PropTypes.bool,
+    mpg: React.PropTypes.string,
+    miles: React.PropTypes.string,
+    date: React.PropTypes.string,
+  })
+}
+
+export default FuelingEntry
