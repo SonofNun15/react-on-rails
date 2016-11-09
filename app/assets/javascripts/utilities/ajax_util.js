@@ -3,3 +3,5 @@ var AjaxUtility = {
     $.post(url, data, callback, options);
   },
 };
+
+module.exports = AjaxUtility;

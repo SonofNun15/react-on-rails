@@ -15,3 +15,5 @@ function twoDigits(number) {
     return '0' + number;
   }
 }
+
+module.exports = DateUtility;
