@@ -1,0 +1,29 @@
+{
+  "name": "react-on-rails",
+  "version": "1.0.0",
+  "description": "React components for Mileage",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^1.13.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SonofNun15/react-on-rails.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Josh Graber",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SonofNun15/react-on-rails/issues"
+  },
+  "homepage": "https://github.com/SonofNun15/react-on-rails#readme"
+}
