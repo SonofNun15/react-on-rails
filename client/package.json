@@ -55,7 +55,10 @@
     "lint:watch": "npm run lint -- --watch",
     "test": "mocha --reporter progress build-scripts/test-setup.js \"source/**/*.test.js\"",
     "test:watch": "npm run test -- --watch",
-    "serve": "webpack-dev-server --config webpack.config.dev.js --hot --progress --inline --host 0.0.0.0"
+    "serve": "webpack-dev-server --config webpack.config.dev.js --hot --progress --inline --host 0.0.0.0",
+    "clean": "rimraf ./output && mkdir output",
+    "prebuild": "npm-run-all clean lint test",
+    "build": "babel-node build-scripts/build.js"
   },
   "repository": {
     "type": "git",
