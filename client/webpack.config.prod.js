@@ -1,11 +1,11 @@
 import path from 'path'
 import webpack from 'webpack'
-import WebpackMd5Hash from 'webpack-md5-hash'
+import ManifestPlugin from 'webpack-manifest-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 export default {
-  debug: true,
-  devtool: 'source-map',
+  debug: false,
+  devtool: null,
   noInfo: false,
   entry: {
     polyfills: path.resolve(__dirname, 'source/polyfills'),
@@ -13,22 +13,23 @@ export default {
   },
   target: 'web',
   output: {
-    path: path.resolve(__dirname, 'output'),
-    publicPath: '/',
+    path: '../public/assets',
     filename: '[name].[chunkhash].js'
   },
   plugins: [
+    new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' }),
+
     // Generate a css file with cache busting
     new ExtractTextPlugin('[name].[contenthash].css'),
 
     // Generate hash of bundles for cache busting
-    new WebpackMd5Hash(),
+    new ManifestPlugin(),
 
     // Eliminate duplicate packages
     new webpack.optimize.DedupePlugin(),
 
     // Minify
-    //new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
   ],
   module: {
     loaders: [

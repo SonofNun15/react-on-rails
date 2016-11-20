@@ -43,4 +43,18 @@ module ApplicationHelper
 
     "https://www.gravatar.com/avatar/#{hash}?s=96&d=identicon"
   end
+
+  def webpack_bundle_tag()
+    src =
+      if Rails.configuration.webpack[:use_manifest]
+        manifest = Rails.configuration.webpack[:asset_manifest]
+        filename = manifest["main.js"]
+
+        "#{compute_asset_host}/assets/#{filename}"
+      else
+        "#{compute_asset_host}/assets/bundle.js"
+      end
+
+    javascript_include_tag src
+  end
 end

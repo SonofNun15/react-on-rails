@@ -52,3 +52,9 @@ build-iPhoneSimulator/
 
 # Don't commit sql lite database
 db/development.sqlite3
+
+# Don't commit build files
+public/assets
+
+# Don't commit npm log files
+npm-debug.log
