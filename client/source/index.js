@@ -1,3 +1,19 @@
-import chalk from 'chalk'
+import ReactDOM from 'react-dom'
+import React from 'react'
 
-console.log(chalk.green('do it!')) // eslint-disable-line no-console
+import Profile from './components/profile'
+import Vehicle from './components/vehicle/vehicle'
+
+const components = {
+  'Profile': Profile,
+  'Vehicle': Vehicle,
+}
+
+window.renderReact = (id, componentName, data) => {
+  const component = components[componentName]
+
+  if (component) {
+    ReactDOM.render(React.createElement(component, data),
+                    document.getElementById(id))
+  }
+}

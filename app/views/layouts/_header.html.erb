@@ -3,5 +3,5 @@
     <i class="fa fa-car"></i>
     <span>Mileage</span>
   </a>
-  <%= render 'layouts/profile' %>
+  <%= react_component('Profile', { loggedIn: logged_in?, user: react_user }) %>
 </header>
