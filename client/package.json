@@ -58,7 +58,7 @@
     "serve": "webpack-dev-server --config webpack.config.dev.js --hot --progress --inline --host 0.0.0.0",
     "clean": "rimraf ../public/assets/ && mkdir ../public/assets",
     "prebuild": "npm-run-all clean lint test",
-    "build": "babel-node build-scripts/build.js"
+    "build": "webpack --config webpack.config.prod.js"
   },
   "repository": {
     "type": "git",

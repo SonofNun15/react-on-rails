@@ -1,8 +1,8 @@
-import path from 'path'
-import webpack from 'webpack'
-import ManifestPlugin from 'webpack-manifest-plugin'
+var path = require('path');
+var webpack = require('webpack');
+var ManifestPlugin = require('webpack-manifest-plugin');
 
-export default {
+module.exports = {
   debug: false,
   devtool: null,
   noInfo: false,
@@ -32,4 +32,4 @@ export default {
       {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
     ]
   }
-}
+};
