@@ -7,7 +7,7 @@ class MPGSummary extends React.Component {
   render() {
     return (
       <div className="mileage-summary">
-        <h3>Mileage</h3>
+        <h3>MPG</h3>
         <div className="entries row">
           <span className="lifetime col-xs-6">
             <span className="entry-label">Lifetime: </span>
