@@ -1,40 +1,21 @@
 class MaintenanceController < AuthorizeVehicleController
-  before_action :fetch_maintenance, except: [:new, :create]
+  before_action :fetch_maintenance, except: [:create]
 
   def initialize
     super(:vehicle_id)
   end
 
-  def new
-    @maintenance = Maintenance.new
-    @maintenance.date = Date.today
-    @action_text = 'Add'
-    @action = vehicle_maintenance_index_path
-    render 'edit'
-  end
-
   def create
-    Maintenance.create maintenance_params.merge(vehicle_id: params[:vehicle_id])
-
-    flash[:notice] = 'Added maintenance'
-    redirect_to vehicle_path params[:vehicle_id]
-  end
-
-  def edit
-    @action_text = 'Save'
-    @action = vehicle_maintenance_path params[:vehicle_id], params[:id]
+    @new_maintenance = Maintenance.create maintenance_params.merge(vehicle_id: params[:vehicle_id])
   end
 
   def update
     @maintenance.update maintenance_params
-    flash[:notice] = 'Maintenance updated'
-    redirect_to vehicle_path params[:vehicle_id]
   end
 
   def destroy
     @maintenance.destroy
-    flash[:notice] = 'Maintenance removed'
-    redirect_to vehicle_path params[:vehicle_id]
+    render nothing: true, status: 204
   end
 
   private
