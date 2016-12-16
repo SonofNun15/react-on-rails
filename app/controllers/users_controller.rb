@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def get
     session_manager = Session.new(session)
 
-    if !session_manager.logged_in?
+    unless session_manager.logged_in?
       return render nothing: true, status: 401
     end
 
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def update
     update_params = profile_params
     session_manager = Session.new(session)
-    if !session_manager.logged_in?
+    unless session_manager.logged_in?
       return render nothing: true, status: 401
     end
 
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def update_password
     update_params = password_params
     session_manager = Session.new(session)
-    if !session_manager.logged_in?
+    unless session_manager.logged_in?
       return render nothing: true, status: 401
     end
 

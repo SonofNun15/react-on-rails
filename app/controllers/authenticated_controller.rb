@@ -4,6 +4,8 @@ class AuthenticatedController < ApplicationController
   def require_authentication
     session_manager = Session.new(session)
 
-    redirect_to login_path unless session_manager.logged_in?
+    unless session_manager.logged_in?
+      render nothing: true, status: 401
+    end
   end
 end

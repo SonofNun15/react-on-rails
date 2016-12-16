@@ -1,44 +1,38 @@
 class VehiclesController < AuthorizeVehicleController
-  def new
-    @vehicle = Vehicle.new
-    @action_text = 'Create'
-    @action = vehicles_path
-    render 'edit'
+  before_action :fetch_vehicles, only: [:index]
+
+  def index
   end
 
   def create
     session_manager = Session.new(session)
 
-    new_vehicle = Vehicle.create(vehicle_params)
-    new_vehicle.user = session_manager.user
-    new_vehicle.save
-
-    redirect_to root_path
-  end
-
-  def show
-  end
-
-  def edit
-    @action_text = 'Save'
-    @action = vehicle_path params[:id]
+    @new_vehicle = Vehicle.create(vehicle_params)
+    @new_vehicle.user = session_manager.user
+    @new_vehicle.save
   end
 
   def update
     @vehicle.update vehicle_params
-    flash[:notice] = 'Vehicle updated'
-    redirect_to vehicle_path(params[:id])
   end
 
   def destroy
     @vehicle.destroy
-    flash[:notice] = 'Vehicle removed'
-    redirect_to root_path
+    render nothing: true, status: 204
   end
 
   private
 
+  def fetch_vehicles
+    session_manager = Session.new(session)
+    if session_manager.logged_in?
+      @vehicles = session_manager.user.vehicles if session_manager
+    else
+      @vehicles = []
+    end
+  end
+
   def vehicle_params
-    params.require(:vehicle).permit(:year, :make, :model, :color, :base_mileage)
+    params.permit(:year, :make, :model, :color, :base_mileage)
   end
 end

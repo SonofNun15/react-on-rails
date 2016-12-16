@@ -1,9 +1,0 @@
-<h2>Vehicles</h2>
-<div class="vehicles">
-  <% @vehicles.each do |v| %>
-    <%= render partial: 'vehicle', locals: { vehicle: v } %>
-  <% end %>
-  <a href="<%= new_vehicle_path %>" class="vehicle btn btn-default" tabindex="0">
-    <span><i class="fa fa-plus"></i> Add vehicle</span>
-  </a>
-</div>

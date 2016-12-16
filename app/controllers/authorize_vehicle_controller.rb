@@ -1,5 +1,5 @@
 class AuthorizeVehicleController < AuthenticatedController
-  before_action :authorize, except: [:new, :create]
+  before_action :authorize, except: [:create, :index]
 
   def initialize(vehicle_id_param = :id)
     super()
