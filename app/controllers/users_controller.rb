@@ -1,57 +1,59 @@
 require 'Session'
 
 class UsersController < ApplicationController
-  def new
-    @user = User.new
+  def get
+    session_manager = Session.new(session)
+
+    if !session_manager.logged_in?
+      return render nothing: true, status: 401
+    end
+
+    @profile = session_manager.user
   end
 
   def create
     inputs = register_params
-    new_user = User.create(inputs)
+    @new_user = User.create(inputs)
 
-    if new_user.created_at
-      session_manager = Session.new(session)
-      session_manager.login new_user
+    if @new_user.invalid?
+      return render json: @new_user.errors.details, status: 422
     end
 
-    redirect_to root_path
-  end
-
-  def edit
     session_manager = Session.new(session)
-    return redirect_to login_path if !session_manager.logged_in?
-    @user = User.find session_manager.user_id
+    session_manager.login @new_user
   end
 
   def update
-    update_user profile_params
-    flash[:notice] = 'Profile updated'
-  end
+    update_params = profile_params
+    session_manager = Session.new(session)
+    if !session_manager.logged_in?
+      return render nothing: true, status: 401
+    end
 
-  def edit_password
+    @updated_user = session_manager.user
+    @updated_user.update update_params
   end
 
   def update_password
-    update_user password_params
-    flash[:notice] = 'Password updated'
-  end
-
-  def update_user(update_params)
+    update_params = password_params
     session_manager = Session.new(session)
-    return redirect_to login_path if !session_manager.logged_in?
+    if !session_manager.logged_in?
+      return render nothing: true, status: 401
+    end
 
-    session_manager.user.update update_params
-    redirect_to root_path
+    @updated_user = session_manager.user
+    @updated_user.update update_params
+    return render nothing: true, status: 204
   end
 
   private
 
   def register_params
-    params.require(:user).permit(:email, :name, :password, :password_confirmation)
+    params.permit(:email, :name, :password, :password_confirmation)
   end
 
   def profile_params
-    params.require(:user).permit(:email, :name)
+    params.permit(:email, :name)
   end
 
   def password_params
