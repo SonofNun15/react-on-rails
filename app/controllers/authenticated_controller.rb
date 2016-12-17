@@ -5,7 +5,7 @@ class AuthenticatedController < ApplicationController
     session_manager = Session.new(session)
 
     unless session_manager.logged_in?
-      render nothing: true, status: 401
+      head :unauthorized
     end
   end
 end

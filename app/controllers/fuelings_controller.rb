@@ -15,7 +15,7 @@ class FuelingsController < AuthorizeVehicleController
 
   def destroy
     @fueling.destroy
-    render nothing: true, status: 204
+    head :no_content
   end
 
   private

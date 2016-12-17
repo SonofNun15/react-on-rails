@@ -4,7 +4,7 @@ class SessionController < ApplicationController
     user = User.find_by email: parameters[:email]
 
     if user.blank? or !user.authenticate parameters[:password]
-      return render nothing: true, status: 401
+      return head :unauthorized
     end
 
     session_manager = Session.new(session)
@@ -16,7 +16,7 @@ class SessionController < ApplicationController
     session_manager = Session.new(session)
     session_manager.logout
 
-    render nothing: true, status: 204
+    head :no_content
   end
 
   private

@@ -11,6 +11,9 @@ class AuthorizeVehicleController < AuthenticatedController
   def authorize
     @vehicle = Vehicle.find params[@vehicle_id_param]
     session_manager = Session.new(session)
-    redirect_to login_path unless session_manager.user_id == @vehicle.user.id
+
+    unless session_manager.user_id == @vehicle.user.id
+      return head :forbidden
+    end
   end
 end

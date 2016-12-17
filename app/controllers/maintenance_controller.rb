@@ -15,7 +15,7 @@ class MaintenanceController < AuthorizeVehicleController
 
   def destroy
     @maintenance.destroy
-    render nothing: true, status: 204
+    head :no_content
   end
 
   private
