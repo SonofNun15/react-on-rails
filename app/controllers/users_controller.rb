@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     session_manager = Session.new(session)
 
     unless session_manager.logged_in?
-      return render nothing: true, status: 401
+      return head :unauthorized
     end
 
     @profile = session_manager.user
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     update_params = profile_params
     session_manager = Session.new(session)
     unless session_manager.logged_in?
-      return render nothing: true, status: 401
+      return head :unauthorized
     end
 
     @updated_user = session_manager.user
@@ -38,12 +38,12 @@ class UsersController < ApplicationController
     update_params = password_params
     session_manager = Session.new(session)
     unless session_manager.logged_in?
-      return render nothing: true, status: 401
+      return head :unauthorized
     end
 
     @updated_user = session_manager.user
     @updated_user.update update_params
-    return render nothing: true, status: 204
+    return head :no_content
   end
 
   private

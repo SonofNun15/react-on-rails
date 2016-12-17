@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post 'password' => 'users#update_password'
 
   post 'login' => 'session#create'
-  post 'logout' => 'session#destroy'
+  delete 'login' => 'session#destroy'
 
   resources :vehicles do
     resources :fuelings
