@@ -1,4 +1,6 @@
-# README
+## react-rails-es5
+
+This branch uses the `react-rails` gem to render some simple ReactJS components within a Rails application.
 
 ## react-on-rails
 A vanilla Ruby on Rails application for tracking vehicle mileage
