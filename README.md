@@ -1,27 +1,20 @@
-# README
+## `react-rails-npm` branch
+
+Adds react components in a separate client folder. This folder is transpiled and bundled separately and then referenced in the rails application.
 
 ## react-on-rails
 A vanilla Ruby on Rails application for tracking vehicle mileage
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Runs great on Ruby 2.2.2
 
-Things you may want to cover:
+To run, execute:
+```
+bundle
+bundle exec rake db:setup
+npm install
+bundle exec rails s
+```
 
-* Ruby version
+Then point a browser to `localhost:3000`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+There are no tests associated with this application as it was built quickly for demonstration purposes. All production code should be covered by tests to prevent regression, but failures in application have little to no cost.
