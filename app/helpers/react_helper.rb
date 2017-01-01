@@ -12,9 +12,11 @@ module ReactHelper
 
   def script(component, id, data)
     "<script>
-      document.addEventListener('turbolinks:load', function(ev) {
+      var react = function() {
         renderReact('#{id}', '#{component}', #{data.to_json})
-      });
+      }
+
+      document.addEventListener('DOMContentLoaded', react);
     </script>"
   end
 end

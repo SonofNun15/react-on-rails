@@ -17,3 +17,4 @@ window.renderReact = (id, componentName, data) => {
                     document.getElementById(id))
   }
 }
+
