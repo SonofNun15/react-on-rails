@@ -1,5 +1,3 @@
-var React = require('react');
-
 var LoggedIn = require('./profile/logged_in.jsx');
 var LoggedOut = require('./profile/logged_out.jsx');
 

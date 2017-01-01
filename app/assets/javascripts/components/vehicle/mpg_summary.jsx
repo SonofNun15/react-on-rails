@@ -1,5 +1,3 @@
-var React = require('react');
-
 var mpgType = React.PropTypes.shape({
   lifetime: React.PropTypes.string,
   recent: React.PropTypes.string,

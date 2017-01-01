@@ -1,5 +1,3 @@
-var React = require('react');
-
 var RailsForm = require('../rails_form.jsx');
 
 module.exports = React.createClass({
@@ -20,7 +18,7 @@ module.exports = React.createClass({
 
     var editUrl = deleteUrl + '/edit';
 
-    indicator = <i className="fa fa-exclamation-circle important"></i>
+    var indicator = <i className="fa fa-exclamation-circle important"></i>
 
     return (
       <div className="entry row">

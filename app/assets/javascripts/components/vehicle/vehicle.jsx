@@ -1,5 +1,3 @@
-var React = require('react');
-
 var VehicleTitle = require('./title.jsx');
 var MPGSummary = require('./mpg_summary.jsx');
 var MileageSummary = require('./mileage_summary.jsx');

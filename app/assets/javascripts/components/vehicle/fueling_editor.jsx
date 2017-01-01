@@ -1,5 +1,3 @@
-var React = require('react');
-
 var AjaxUtility = require('../../utilities/ajax_util');
 var DateUtility = require('../../utilities/date_util');
 

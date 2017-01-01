@@ -1,5 +1,3 @@
-var React = require('react');
-
 var CSRFToken = require('./csrf_token.jsx');
 
 module.exports = React.createClass({

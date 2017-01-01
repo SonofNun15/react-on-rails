@@ -1,5 +1,3 @@
-var React = require('react');
-
 var FuelingEntry = require('./fueling_entry.jsx');
 var MaintenanceEntry = require('./maintenance_entry.jsx');
 
