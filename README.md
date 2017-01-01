@@ -1,4 +1,6 @@
-# README
+## react-rails-browserify
+
+In this branch, we are using the `react-rails` gem. In addition, we are using the `browserify-rails` gem to bundle the resolve the dependency tree in our JavaScript files, allowing imports.
 
 ## react-on-rails
 A vanilla Ruby on Rails application for tracking vehicle mileage
@@ -9,6 +11,7 @@ To run, execute:
 ```
 bundle
 bundle exec rake db:setup
+npm install
 bundle exec rails s
 ```
 
