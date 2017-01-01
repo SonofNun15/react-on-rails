@@ -1,4 +1,6 @@
-# README
+## react-rails-es6
+
+This branch uses the `react-rails` gem to render some simple ReactJS components within a Rails application. It also includes `sprockets` and `babel-transpiler` to transpile ES6 code.
 
 ## react-on-rails
 A vanilla Ruby on Rails application for tracking vehicle mileage
