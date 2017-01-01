@@ -7,11 +7,19 @@ A vanilla Ruby on Rails application for tracking vehicle mileage
 
 Runs great on Ruby 2.2.2
 
-To run, execute:
+To run:
+
+Open up two terminals. In the first terminal execute:
+```
+cd client
+npm install
+npm start
+```
+
+In a second terminal, execute:
 ```
 bundle
 bundle exec rake db:setup
-npm install
 bundle exec rails s
 ```
 
