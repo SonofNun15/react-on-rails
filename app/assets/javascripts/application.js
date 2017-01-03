@@ -16,7 +16,6 @@
 //= require turbolinks
 //= require react-server
 //= require react_ujs
-//= require bootstrap
 //= require session
 //= require users
 //= require vehicle
