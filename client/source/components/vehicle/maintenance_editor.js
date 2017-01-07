@@ -9,6 +9,9 @@ class MaintenanceEditor extends React.Component {
 
     const now = new Date()
 
+    this.createMaintenance = this.createMaintenance.bind(this)
+    this.close = this.close.bind(this)
+
     this.state = {
       mechanic: '',
       description: '',
@@ -37,31 +40,31 @@ class MaintenanceEditor extends React.Component {
   render() {
     return (
       <div>
-        <form className="form-inline" onSubmit={this.createMaintenance.bind(this)}>
+        <form className="form-inline" onSubmit={this.createMaintenance}>
           <div>
             <div className="form-group">
               <input className="form-control" placeholder="Mechanic"
-                     onChange={function(e) { this.onChange({ mechanic: e.target.value }) }.bind(this)}
+                     onChange={(e) => { this.onChange({ mechanic: e.target.value }) }}
                      type="text" value={this.state.mechanic} />
             </div>
             <div className="form-group">
               <input className="form-control" placeholder="Description"
-                     onChange={function(e) { this.onChange({ description: e.target.value }) }.bind(this)}
+                     onChange={(e) => { this.onChange({ description: e.target.value }) }}
                      type="text" value={this.state.description} />
             </div>
             <div className="form-group">
               <input className="form-control" placeholder="Cost"
-                     onChange={function(e) { this.onChange({ cost: e.target.value }) }.bind(this)}
+                     onChange={(e) => { this.onChange({ cost: e.target.value }) }}
                      type="number" value={this.state.cost} />
             </div>
             <div className="form-group">
               <input className="form-control" placeholder="Date"
-                     onChange={function(e) { this.onChange({ date: e.target.value }) }.bind(this)}
+                     onChange={(e) => { this.onChange({ date: e.target.value }) }}
                      type="date" value={this.state.date} />
             </div>
             <div className="pull-right buttons">
               <button type="button" className="btn btn-danger"
-                      onClick={this.close.bind(this)}>
+                      onClick={this.close}>
                 <i className="fa fa-times"></i> Close
               </button>
               <button type="submit" className="btn btn-success">

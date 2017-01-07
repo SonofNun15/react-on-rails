@@ -11,6 +11,10 @@ class Vehicle extends React.Component {
   constructor() {
     super()
 
+    this.addFueling = this.addFueling.bind(this)
+    this.addMaintenance = this.addMaintenance.bind(this)
+    this.closeEditor = this.closeEditor.bind(this)
+
     this.state = { editor: null }
   }
 
@@ -50,11 +54,11 @@ class Vehicle extends React.Component {
         </div>
         <div className="buttons">
           <button type="button" className="btn btn-default"
-                  onClick={this.addFueling.bind(this)}>
+                  onClick={this.addFueling}>
             <i className="fa fa-tachometer"></i> Add fueling
           </button>
           <button type="button" className="btn btn-default"
-                  onClick={this.addMaintenance.bind(this)}>
+                  onClick={this.addMaintenance}>
             <i className="fa fa-wrench"></i> Add maintenance
           </button>
         </div>

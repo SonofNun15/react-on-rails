@@ -5,18 +5,19 @@ import MaintenanceEntry from './maintenance_entry'
 
 class VehicleDataTable extends React.Component {
   render() {
+    const { vehicleId } = this.props
     return (
       <div className="data-table">
         {
-          this.props.lineItems.map(function(item) {
+          this.props.lineItems.map((item) => {
             if (item.type == 'fueling') {
-              return <FuelingEntry key={item.key} vehicleId={this.props.vehicleId}
+              return <FuelingEntry key={item.key} vehicleId={vehicleId}
                                    fueling={item} />
             } else if (item.type == 'maintenance') {
-              return <MaintenanceEntry key={item.key} vehicleId={this.props.vehicleId}
+              return <MaintenanceEntry key={item.key} vehicleId={vehicleId}
                                        maintenance={item} />
             }
-          }.bind(this))
+          })
         }
       </div>
     )

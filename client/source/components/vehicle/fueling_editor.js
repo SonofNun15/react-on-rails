@@ -7,6 +7,9 @@ class FuelingEditor extends React.Component {
   constructor() {
     super()
 
+    this.close = this.close.bind(this)
+    this.createFueling = this.createFueling.bind(this)
+
     const now = new Date()
 
     this.state = {
@@ -37,30 +40,30 @@ class FuelingEditor extends React.Component {
   render() {
     return (
       <div>
-        <form className="form-inline" onSubmit={this.createFueling.bind(this)}>
+        <form className="form-inline" onSubmit={this.createFueling}>
           <div className="form-group">
             <input className="form-control" placeholder="Gas"
                    type="number" value={this.state.gas}
-                   onChange={function(e) { this.onChange({ gas: e.target.value }) }.bind(this)} />
+                   onChange={(e) => { this.onChange({ gas: e.target.value }) }} />
           </div>
           <div className="form-group">
             <input className="form-control" placeholder="Miles"
                    type="number" value={this.state.miles}
-                   onChange={function(e) { this.onChange({ miles: e.target.value }) }.bind(this)} />
+                   onChange={(e) => { this.onChange({ miles: e.target.value }) }} />
           </div>
           <div className="form-group">
             <input className="form-control" placeholder="Cost"
                    type="number" value={this.state.cost}
-                   onChange={function(e) { this.onChange({ cost: e.target.value }) }.bind(this)} />
+                   onChange={(e) => { this.onChange({ cost: e.target.value }) }} />
           </div>
           <div className="form-group">
             <input className="form-control" placeholder="Date"
                    type="date" value={this.state.date}
-                   onChange={function(e) { this.onChange({ date: e.target.value }) }.bind(this)} />
+                   onChange={(e) => { this.onChange({ date: e.target.value }) }} />
           </div>
           <div className="pull-right buttons">
             <button type="button" className="btn btn-danger"
-                    onClick={this.close.bind(this)}>
+                    onClick={this.close}>
               <i className="fa fa-times"></i> Close
             </button>
             <button type="submit" className="btn btn-success">
