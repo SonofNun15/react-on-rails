@@ -4,7 +4,12 @@ class CSRFToken extends React.Component {
   constructor() {
     super()
 
-    this.csrfToken = $('meta[name=csrf-token]').attr('content')
+    this.csrfToken = this.extractCSRFToken()
+  }
+
+  extractCSRFToken() {
+    const metaTag = document.querySelector('meta[name=csrf-token]')
+    return metaTag.content
   }
 
   render() {
